@@ -658,6 +658,28 @@ body {
   margin-left: 8px;
 }
 
+/* 对话紧凑间距 */
+.dialog-line { gap: 4px; }
+.dialog-speaker { min-width: auto; }
+
+/* 对话语音播放按钮 */
+.dialog-play-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 12px;
+  font-size: 13px;
+  background: var(--italian-green);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: opacity 0.2s;
+}
+.dialog-play-btn:hover { opacity: 0.85; }
+.dialog-play-btn.playing { background: var(--italian-red); }
+
 /* Buttons */
 .btn-primary {
   display: inline-flex;
