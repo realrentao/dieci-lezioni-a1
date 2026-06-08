@@ -211,14 +211,52 @@
     <div class="lesson-section">
       <h2>🎯 Esercizi · 练习</h2>
       
-      <h3>练习 1：填写适当的动词形式</h3>
-      <p>用 essere 或 avere 的适当形式填空：</p>
-      <div id="ex1">
-        <p>Io <input type="text" class="fill-input" data-answer="sono" onchange="checkFill(this)"> di Pechino.</p>
-        <p>Tu come <input type="text" class="fill-input" data-answer="ti chiami" onchange="checkFill(this)"> ?</p>
-        <p>Lei <input type="text" class="fill-input" data-answer="è" onchange="checkFill(this)"> italiana.</p>
-        <p>Io <input type="text" class="fill-input" data-answer="ho" onchange="checkFill(this)"> un libro.</p>
-        <p>Tu <input type="text" class="fill-input" data-answer="hai" onchange="checkFill(this)"> una penna?</p>
+      <h3>练习 1：选择正确的动词形式</h3>
+      <p>选择 essere 或 avere 的适当形式：</p>
+      <div class="quiz-question">
+        <div class="q-text">1. Io ___ di Pechino.</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="checkQuiz(this,true)">A. sono</div>
+          <div class="quiz-option" onclick="checkQuiz(this,false)">B. sei</div>
+          <div class="quiz-option" onclick="checkQuiz(this,false)">C. ha</div>
+          <div class="quiz-option" onclick="checkQuiz(this,false)">D. ho</div>
+        </div>
+      </div>
+      <div class="quiz-question">
+        <div class="q-text">2. Tu come ___ ?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="checkQuiz(this,false)">A. mi chiamo</div>
+          <div class="quiz-option" onclick="checkQuiz(this,true)">B. ti chiami</div>
+          <div class="quiz-option" onclick="checkQuiz(this,false)">C. si chiama</div>
+          <div class="quiz-option" onclick="checkQuiz(this,false)">D. chiamo</div>
+        </div>
+      </div>
+      <div class="quiz-question">
+        <div class="q-text">3. Lei ___ italiana.</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="checkQuiz(this,false)">A. sei</div>
+          <div class="quiz-option" onclick="checkQuiz(this,false)">B. sono</div>
+          <div class="quiz-option" onclick="checkQuiz(this,true)">C. è</div>
+          <div class="quiz-option" onclick="checkQuiz(this,false)">D. ha</div>
+        </div>
+      </div>
+      <div class="quiz-question">
+        <div class="q-text">4. Io ___ un libro.</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="checkQuiz(this,true)">A. ho</div>
+          <div class="quiz-option" onclick="checkQuiz(this,false)">B. ha</div>
+          <div class="quiz-option" onclick="checkQuiz(this,false)">C. sono</div>
+          <div class="quiz-option" onclick="checkQuiz(this,false)">D. hai</div>
+        </div>
+      </div>
+      <div class="quiz-question">
+        <div class="q-text">5. Tu ___ una penna?</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="checkQuiz(this,false)">A. ha</div>
+          <div class="quiz-option" onclick="checkQuiz(this,false)">B. ho</div>
+          <div class="quiz-option" onclick="checkQuiz(this,false)">C. sei</div>
+          <div class="quiz-option" onclick="checkQuiz(this,true)">D. hai</div>
+        </div>
       </div>
 
       <h3 style="margin-top:20px;">练习 2：配对 · 意大利语 vs 中文</h3>
@@ -281,16 +319,6 @@
       el.classList.add('active');
       parent.querySelectorAll('[id^="vocab"],[id^="dialog"],[id^="grammar"]').forEach(d => d.style.display = 'none');
       document.getElementById(id).style.display = 'block';
-    }
-
-    function checkFill(el) {
-      const answer = el.dataset.answer.toLowerCase();
-      const userVal = el.value.trim().toLowerCase();
-      if (userVal === answer) {
-        el.classList.add('correct'); el.classList.remove('wrong');
-      } else if (userVal) {
-        el.classList.add('wrong'); el.classList.remove('correct');
-      }
     }
 
     let selectedMatch = null;
