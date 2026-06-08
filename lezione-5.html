@@ -19,11 +19,43 @@
       <div class="vocab-card" onclick="speak('stazione')"><div class="it">stazione 🚉</div><div class="cn">火车站</div></div>
       <div class="vocab-card" onclick="speak('supermercato')"><div class="it">supermercato 🛒</div><div class="cn">超市</div></div>
     </div>
-    <h3>🎯 练习：用 c'è 或 ci sono 填空</h3>
-    <p>In città <input class="fill-input" data-answer="c'è" onchange="cf(this)"> un museo.</p>
-    <p>In città <input class="fill-input" data-answer="ci sono" onchange="cf(this)"> molti ristoranti.</p>
-    <p>Qui <input class="fill-input" data-answer="c'è" onchange="cf(this)"> una bella piazza.</p>
-    <p>In centro <input class="fill-input" data-answer="ci sono" onchange="cf(this)"> due cinema.</p>
+    <h3>🎯 练习：选择 c'è 或 ci sono</h3>
+    <div class="quiz-question">
+      <div class="q-text">1. In città ___ un museo.</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="checkQuiz5(this,true)">A. c'è</div>
+        <div class="quiz-option" onclick="checkQuiz5(this,false)">B. ci sono</div>
+        <div class="quiz-option" onclick="checkQuiz5(this,false)">C. sono</div>
+        <div class="quiz-option" onclick="checkQuiz5(this,false)">D. ha</div>
+      </div>
+    </div>
+    <div class="quiz-question">
+      <div class="q-text">2. In città ___ molti ristoranti.</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="checkQuiz5(this,false)">A. c'è</div>
+        <div class="quiz-option" onclick="checkQuiz5(this,true)">B. ci sono</div>
+        <div class="quiz-option" onclick="checkQuiz5(this,false)">C. siamo</div>
+        <div class="quiz-option" onclick="checkQuiz5(this,false)">D. hanno</div>
+      </div>
+    </div>
+    <div class="quiz-question">
+      <div class="q-text">3. Qui ___ una bella piazza.</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="checkQuiz5(this,false)">A. ci sono</div>
+        <div class="quiz-option" onclick="checkQuiz5(this,true)">B. c'è</div>
+        <div class="quiz-option" onclick="checkQuiz5(this,false)">C. è</div>
+        <div class="quiz-option" onclick="checkQuiz5(this,false)">D. ha</div>
+      </div>
+    </div>
+    <div class="quiz-question">
+      <div class="q-text">4. In centro ___ due cinema.</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="checkQuiz5(this,false)">A. c'è</div>
+        <div class="quiz-option" onclick="checkQuiz5(this,false)">B. hanno</div>
+        <div class="quiz-option" onclick="checkQuiz5(this,true)">C. ci sono</div>
+        <div class="quiz-option" onclick="checkQuiz5(this,false)">D. sono</div>
+      </div>
+    </div>
   </div>
 
   <div class="lesson-section">
@@ -89,7 +121,7 @@
 <script>
 window.addEventListener('scroll',()=>{const st=document.documentElement.scrollTop;document.getElementById('scrollProgress').style.width=(st/(document.documentElement.scrollHeight-window.innerHeight)*100)+'%';document.getElementById('topNav').classList.toggle('scrolled',st>50);});
 
-function cf(el){const a=el.dataset.answer;const v=el.value.trim().toLowerCase();if(v===a){el.classList.add('correct');el.classList.remove('wrong');}else if(v){el.classList.add('wrong');el.classList.remove('correct');}}
+function checkQuiz5(el,c){const p=el.closest('.quiz-question');p.querySelectorAll('.quiz-option').forEach(o=>o.style.pointerEvents='none');if(c){el.classList.add('correct');el.insertAdjacentHTML('afterend','<div class="quiz-result" style="color:var(--italian-green);">✅ 正确！Bravo/a!</div>');}else{el.classList.add('wrong');el.insertAdjacentHTML('afterend','<div class="quiz-result" style="color:var(--italian-red);">❌ 再想想！</div>');}}
 </script>
 </body>
 </html>
