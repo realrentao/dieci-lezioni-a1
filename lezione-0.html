@@ -63,7 +63,7 @@
       gap: 3px;
     }
     .number-card:hover { border-color: var(--italian-gold); }
-    .number-card .num { font-size: 16px; font-weight: 700; color: var(--italian-red); line-height: 1.2; }
+    .number-card .num { font-size: 20px; font-weight: 700; color: var(--italian-red); line-height: 1.2; }
     .number-card .it { font-size: 16px; color: var(--text-dark); line-height: 1.2; }
 
     .spelling-game {
@@ -118,23 +118,7 @@
       margin-left: 0;
     }
 
-    /* 对话语音播放按钮 */
-    .dialog-play-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      padding: 4px 12px;
-      font-size: 13px;
-      background: var(--italian-green);
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      margin-top: 8px;
-      transition: opacity 0.2s;
-    }
-    .dialog-play-btn:hover { opacity: 0.85; }
-    .dialog-play-btn.playing { background: var(--italian-red); }
+
   </style>
 </head>
 <body>
@@ -332,7 +316,6 @@
           <span class="dialog-speaker">B:</span>
           <span class="dialog-text"><strong>Sì! ✓</strong> <span class="cn-trans">对！</span></span>
         </div>
-        <button class="dialog-play-btn" onclick="speakDialog(this,'Come si scrive cappuccino? Si scrive ci a pi pi u ci ci i enne o. Cappuccino? Sì!')">🔊 播放对话</button>
       </div>
 
       <h3 style="margin-top:20px;">🎮 拼写练习 · 点击字母拼出单词</h3>
@@ -497,7 +480,6 @@
           <span class="dialog-speaker">B:</span>
           <span class="dialog-text">Ciao! <span class="cn-trans">你好！</span></span>
         </div>
-        <button class="dialog-play-btn" onclick="speakDialog(this,'Ciao! Ciao!')">🔊 播放对话</button>
       </div>
 
       <h3 style="margin-top:20px;">💡 你还认识哪些意大利语单词？</h3>
@@ -582,26 +564,6 @@
       document.getElementById('revealedSpelling').innerHTML = 
         `<span style="color:var(--italian-green)">${word}</span> 的拼写: <span style="color:var(--italian-red)">${letters}</span>`;
       speak(word.toLowerCase());
-    }
-
-    // Dialog voice playback
-    function speakDialog(btn, text) {
-      if (btn.classList.contains('playing')) {
-        speechSynthesis.cancel();
-        btn.classList.remove('playing');
-        btn.textContent = '🔊 播放对话';
-        return;
-      }
-      btn.classList.add('playing');
-      btn.textContent = '⏹ 停止';
-      const u = new SpeechSynthesisUtterance(text);
-      u.lang = 'it-IT';
-      u.rate = 0.85;
-      u.onend = () => {
-        btn.classList.remove('playing');
-        btn.textContent = '🔊 播放对话';
-      };
-      speechSynthesis.speak(u);
     }
 
     // Intersection observer

@@ -6,12 +6,23 @@
 
 // Audio cache for loaded Audio objects
 const audioCache = {};
+// Track currently playing audio
+let currentAudio = null;
 
 /**
  * Play pre-recorded audio for a given word/phrase
  * @param {string} text - The word or phrase to pronounce
  */
 function speak(text) {
+  // Stop any currently playing audio before starting new one
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+  }
+  if ('speechSynthesis' in window) {
+    speechSynthesis.cancel();
+  }
+
   const normalized = text.toLowerCase().trim();
 
   // Try base64 audio if data is loaded
@@ -45,14 +56,22 @@ function speak(text) {
  * Play audio from a base64 data URI
  */
 function playBase64Audio(dataUri) {
+  // Stop any currently playing audio
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+  }
+
   // Check cache first
   if (audioCache[dataUri]) {
     audioCache[dataUri].currentTime = 0;
-    audioCache[dataUri].play().catch(() => {});
+    currentAudio = audioCache[dataUri];
+    currentAudio.play().catch(() => {});
     return;
   }
 
   const audio = new Audio(dataUri);
   audioCache[dataUri] = audio;
+  currentAudio = audio;
   audio.play().catch(() => {});
 }
