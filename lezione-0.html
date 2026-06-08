@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lezione 0 · Lettere e numeri · DIECI A1</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="audio/audio-data.js"></script>
+  <script src="js/audio-player.js"></script>
+  <style>
+    .alphabet-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 10px;
+      margin: 20px 0;
+    }
+    .alphabet-card {
+      background: white;
+      border: 2px solid var(--border-light);
+      border-radius: 10px;
+      padding: 12px 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .alphabet-card:hover {
+      border-color: var(--italian-red);
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(206,43,55,0.15);
+    }
+    .alphabet-card .letter {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--italian-red);
+    }
+    .alphabet-card .pronounce {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+    .alphabet-card .example {
+      font-size: 13px;
+      color: var(--italian-green);
+      margin-top: 2px;
+      font-style: italic;
+    }
+
+    .number-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+      gap: 8px;
+    }
+    .number-card {
+      background: var(--bg-light);
+      border: 1px solid var(--border-light);
+      border-radius: 10px;
+      padding: 12px;
+      text-align: center;
+      transition: all 0.2s;
+    }
+    .number-card:hover { border-color: var(--italian-gold); }
+    .number-card .num { font-size: 24px; font-weight: 700; color: var(--italian-red); }
+    .number-card .it { font-size: 14px; color: var(--text-dark); }
+
+    .spelling-game {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin: 16px 0;
+    }
+    .spelling-letter {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      border: 2px solid var(--italian-green);
+      border-radius: 8px;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--italian-green);
+      transition: all 0.2s;
+    }
+    .spelling-letter.revealed {
+      background: var(--italian-green);
+      color: white;
+    }
+
+    .italian-flag-colors {
+      display: flex;
+      height: 6px;
+      border-radius: 3px;
+      overflow: hidden;
+      margin: 24px 0;
+    }
+    .italian-flag-colors span {
+      flex: 1;
+    }
+    .italian-flag-colors .green { background: var(--italian-green); }
+    .italian-flag-colors .white { background: var(--italian-white); border-left: 1px solid #ddd; border-right: 1px solid #ddd; }
+    .italian-flag-colors .red { background: var(--italian-red); }
+  </style>
+</head>
+<body>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <nav class="top-nav" id="topNav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="flag-icon"></div>
+        DIECI <span style="font-weight:400;color:var(--text-muted);font-size:14px;">Italiano A1</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#lezioni" class="active">Lezioni</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="lesson-hero">
+    <a href="index.html" class="back-link">← Torna al corso 返回课程</a>
+    <div class="lesson-badge">🔤 Lezione 0 · 预备课</div>
+    <h1>Lettere e numeri</h1>
+    <p class="subtitle">字母、拼写与数字 · Alfabeto, spelling e numeri</p>
+    <div class="lesson-goals-bar">
+      <span class="goal">✏️ Fare lo spelling 拼写</span>
+      <span class="goal">🔢 Contare da 0 a 20 数数</span>
+      <span class="goal">👋 Salutare 问候</span>
+      <span class="goal"><span class="flag-emoji"></span> Alfabeto italiano 字母表</span>
+    </div>
+  </section>
+
+  <div class="lesson-content">
+    <!-- Section A: Alfabeto -->
+    <div class="lesson-section">
+      <h2>🔤 1. L'alfabeto italiano · 意大利语字母表</h2>
+      <p>意大利语字母表共有 <strong>21 个字母</strong>，此外还有 5 个外来字母 (J, K, W, X, Y)。点击每个字母听发音示例：</p>
+      
+      <div class="italian-flag-colors">
+        <span class="green"></span><span class="white"></span><span class="red"></span>
+      </div>
+
+      <div class="alphabet-grid" id="alphabetGrid">
+        <div class="alphabet-card" onclick="speak('a')">
+          <div class="letter">A</div>
+          <div class="pronounce">/a/</div>
+          <div class="example">Amore</div>
+        </div>
+        <div class="alphabet-card" onclick="speak('bi')">
+          <div class="letter">B</div>
+          <div class="pronounce">/bi/</div>
+          <div class="example">Bacio</div>
+        </div>
+        <div class="alphabet-card" onclick="speak('ci')">
+          <div class="letter">C</div>
+          <div class="pronounce">/ci/</div>
+          <div class="example">Ciao</div>
+        </div>
+        <div class="alphabet-card" onclick="speak('di')">
+          <div class="letter">D</div>
+          <div class="pronounce">/di/</div>
+          <div class="example">Dieci</div>
+        </div>
+        <div class="alphabet-card" onclick="speak('e')">
+          <div class="letter">E</div>
+          <div class="pronounce">/e/</div>
+          <div class="example">Espresso</div>
+        </div>
+        <div class="alphabet-card" onclick="speak('effe')">
+          <div class="letter">F</div>
+          <div class="pronounce">/ɛffe/</div>
+          <div class="example">Firenze</div>
+        </div>
+        <div class="alphabet-card" onclick="speak('gi')">
+          <div class="letter">G</div>
+          <div class="pronounce">/gi/</div>
+          <div class="example">Grazie</div>
+        </div>
+        <div class="alphabet-card" onclick="speak('acca')">
+          <div class="letter">H</div>
+          <div class="pronounce">/akka/</div>
+          <div class="example">Hotel</div>
+        </div>
+        <div class="alphabet-card" onclick="speak('i')">
+          <div class="letter">I</div>
+          <div class="pronounce">/i/</div>
+          <div class="example">Italia</div>
+        </div>
+        <div class="alphabet-card" onclick="speak('elle')">
+          <div class="letter">L</div>
+          <div class="pronounce">/ɛlle/</div>
+          <div class="example">Lasagna</div>
+        </div>
+        <div class="alphabet-card" onclick="speak('emme')">
+          <div class="letter">M</div>
+          <div class="pronounce">/ɛmme/</div>
+          <div class="example">Mamma</div>
+        </div>
+        <div class="alphabet-card" onclick="speak('enne')">
+          <div class="letter">N</div>
+          <div class="pronounce">/ɛnne/</div>
+          <div class="example">Napoli</div>
+        </div>
+        <div class="alphabet-card" onclick="speak('o')">
+          <div class="letter">O</div>
+          <div class="pronounce">/o/</div>
+          <div class="example">Opera</div>
+        </div>
+        <div class="alphabet-card" onclick="speak('pi')">
+          <div class="letter">P</div>
+          <div class="pronounce">/pi/</div>
+          <div class="example">Pasta</div>
+        </div>
+        <div class="alphabet-card" onclick="speak('ku')">
+          <div class="letter">Q</div>
+          <div class="pronounce">/ku/</div>
+          <div class="example">Questo</div>
+        </div>
+        <div class="alphabet-card" onclick="speak('erre')">
+          <div class="letter">R</div>
+          <div class="pronounce">/ɛrre/</div>
+          <div class="example">Roma</div>
+        </div>
+        <div class="alphabet-card" onclick="speak('esse')">
+          <div class="letter">S</div>
+          <div class="pronounce">/ɛsse/</div>
+          <div class="example">Spaghetti</div>
+        </div>
+        <div class="alphabet-card" onclick="speak('ti')">
+          <div class="letter">T</div>
+          <div class="pronounce">/ti/</div>
+          <div class="example">Tiramisù</div>
+        </div>
+        <div class="alphabet-card" onclick="speak('u')">
+          <div class="letter">U</div>
+          <div class="pronounce">/u/</div>
+          <div class="example">Uno</div>
+        </div>
+        <div class="alphabet-card" onclick="speak('vu')">
+          <div class="letter">V</div>
+          <div class="pronounce">/vu/</div>
+          <div class="example">Vespa</div>
+        </div>
+        <div class="alphabet-card" onclick="speak('zeta')">
+          <div class="letter">Z</div>
+          <div class="pronounce">/dzɛta/</div>
+          <div class="example">Zanzara</div>
+        </div>
+      </div>
+
+      <h3 style="margin-top:24px;">🌍 外来字母 (Lettere straniere)</h3>
+      <div class="alphabet-grid" style="grid-template-columns:repeat(5,1fr);">
+        <div class="alphabet-card" onclick="speak('i lunga')" style="background:var(--accent-gold-light);">
+          <div class="letter">J</div>
+          <div class="pronounce">i lunga</div>
+        </div>
+        <div class="alphabet-card" onclick="speak('kappa')" style="background:var(--accent-gold-light);">
+          <div class="letter">K</div>
+          <div class="pronounce">kappa</div>
+        </div>
+        <div class="alphabet-card" onclick="speak('doppia vu')" style="background:var(--accent-gold-light);">
+          <div class="letter">W</div>
+          <div class="pronounce">doppia vu</div>
+        </div>
+        <div class="alphabet-card" onclick="speak('ics')" style="background:var(--accent-gold-light);">
+          <div class="letter">X</div>
+          <div class="pronounce">ics</div>
+        </div>
+        <div class="alphabet-card" onclick="speak('ipsilon')" style="background:var(--accent-gold-light);">
+          <div class="letter">Y</div>
+          <div class="pronounce">ipsilon</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section B: Spelling -->
+    <div class="lesson-section">
+      <h2>✏️ 2. Come si scrive? · 怎么拼写？</h2>
+      <p>当你想知道一个词怎么拼写时，可以问：<strong>"Come si scrive?"</strong> (怎么拼写？)。</p>
+      
+      <div class="dialog-box">
+        <div class="dialog-line">
+          <span class="dialog-speaker">A:</span>
+          <span class="dialog-text">Come si scrive <strong>"cappuccino"</strong>?</span>
+        </div>
+        <div class="dialog-line">
+          <span class="dialog-speaker">B:</span>
+          <span class="dialog-text">Si scrive: <strong>ci - a - pi - pi - u - ci - ci - i - enne - o</strong></span>
+        </div>
+        <div class="dialog-line">
+          <span class="dialog-speaker">A:</span>
+          <span class="dialog-text">Cappuccino? <span class="cn-trans">是 cappuccino 吗？</span></span>
+        </div>
+        <div class="dialog-line">
+          <span class="dialog-speaker">B:</span>
+          <span class="dialog-text"><strong>Sì! ✓</strong> <span class="cn-trans">对！</span></span>
+        </div>
+      </div>
+
+      <h3 style="margin-top:20px;">🎮 拼写练习 · 点击字母拼出单词</h3>
+      <p style="font-size:14px;color:var(--text-muted);margin-bottom:12px;">点击下方字母拼出意大利语单词，看看你能拼出什么：</p>
+      
+      <div style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:16px;" id="spellingLetters">
+        <span class="spelling-letter" onclick="addSpellingLetter('A')">A</span>
+        <span class="spelling-letter" onclick="addSpellingLetter('B')">B</span>
+        <span class="spelling-letter" onclick="addSpellingLetter('C')">C</span>
+        <span class="spelling-letter" onclick="addSpellingLetter('D')">D</span>
+        <span class="spelling-letter" onclick="addSpellingLetter('E')">E</span>
+        <span class="spelling-letter" onclick="addSpellingLetter('F')">F</span>
+        <span class="spelling-letter" onclick="addSpellingLetter('G')">G</span>
+        <span class="spelling-letter" onclick="addSpellingLetter('H')">H</span>
+        <span class="spelling-letter" onclick="addSpellingLetter('I')">I</span>
+        <span class="spelling-letter" onclick="addSpellingLetter('L')">L</span>
+        <span class="spelling-letter" onclick="addSpellingLetter('M')">M</span>
+        <span class="spelling-letter" onclick="addSpellingLetter('N')">N</span>
+        <span class="spelling-letter" onclick="addSpellingLetter('O')">O</span>
+        <span class="spelling-letter" onclick="addSpellingLetter('P')">P</span>
+        <span class="spelling-letter" onclick="addSpellingLetter('Q')">Q</span>
+        <span class="spelling-letter" onclick="addSpellingLetter('R')">R</span>
+        <span class="spelling-letter" onclick="addSpellingLetter('S')">S</span>
+        <span class="spelling-letter" onclick="addSpellingLetter('T')">T</span>
+        <span class="spelling-letter" onclick="addSpellingLetter('U')">U</span>
+        <span class="spelling-letter" onclick="addSpellingLetter('V')">V</span>
+        <span class="spelling-letter" onclick="addSpellingLetter('Z')">Z</span>
+      </div>
+      <div style="text-align:center;min-height:50px;font-size:24px;font-weight:700;letter-spacing:4px;margin:12px 0;color:var(--italian-red);" id="spellingWord"></div>
+      <div style="text-align:center;">
+        <button class="btn-secondary" onclick="clearSpelling()" style="padding:8px 20px;font-size:13px;">🗑️ 清除</button>
+      </div>
+    </div>
+
+    <!-- Section C: Numeri -->
+    <div class="lesson-section">
+      <h2>🔢 3. I numeri da 0 a 20 · 数字 0 到 20</h2>
+      <p>点击数字卡片听发音，尝试记住每个数字的意大利语说法：</p>
+      
+      <div class="number-grid" id="numberGrid">
+        <div class="number-card" onclick="speak('zero')">
+          <div class="num">0</div>
+          <div class="it">zero</div>
+        </div>
+        <div class="number-card" onclick="speak('uno')">
+          <div class="num">1</div>
+          <div class="it">uno</div>
+        </div>
+        <div class="number-card" onclick="speak('due')">
+          <div class="num">2</div>
+          <div class="it">due</div>
+        </div>
+        <div class="number-card" onclick="speak('tre')">
+          <div class="num">3</div>
+          <div class="it">tre</div>
+        </div>
+        <div class="number-card" onclick="speak('quattro')">
+          <div class="num">4</div>
+          <div class="it">quattro</div>
+        </div>
+        <div class="number-card" onclick="speak('cinque')">
+          <div class="num">5</div>
+          <div class="it">cinque</div>
+        </div>
+        <div class="number-card" onclick="speak('sei')">
+          <div class="num">6</div>
+          <div class="it">sei</div>
+        </div>
+        <div class="number-card" onclick="speak('sette')">
+          <div class="num">7</div>
+          <div class="it">sette</div>
+        </div>
+        <div class="number-card" onclick="speak('otto')">
+          <div class="num">8</div>
+          <div class="it">otto</div>
+        </div>
+        <div class="number-card" onclick="speak('nove')">
+          <div class="num">9</div>
+          <div class="it">nove</div>
+        </div>
+        <div class="number-card" onclick="speak('dieci')">
+          <div class="num">10</div>
+          <div class="it">dieci</div>
+        </div>
+        <div class="number-card" onclick="speak('undici')">
+          <div class="num">11</div>
+          <div class="it">undici</div>
+        </div>
+        <div class="number-card" onclick="speak('dodici')">
+          <div class="num">12</div>
+          <div class="it">dodici</div>
+        </div>
+        <div class="number-card" onclick="speak('tredici')">
+          <div class="num">13</div>
+          <div class="it">tredici</div>
+        </div>
+        <div class="number-card" onclick="speak('quattordici')">
+          <div class="num">14</div>
+          <div class="it">quattordici</div>
+        </div>
+        <div class="number-card" onclick="speak('quindici')">
+          <div class="num">15</div>
+          <div class="it">quindici</div>
+        </div>
+        <div class="number-card" onclick="speak('sedici')">
+          <div class="num">16</div>
+          <div class="it">sedici</div>
+        </div>
+        <div class="number-card" onclick="speak('diciassette')">
+          <div class="num">17</div>
+          <div class="it">diciassette</div>
+        </div>
+        <div class="number-card" onclick="speak('diciotto')">
+          <div class="num">18</div>
+          <div class="it">diciotto</div>
+        </div>
+        <div class="number-card" onclick="speak('diciannove')">
+          <div class="num">19</div>
+          <div class="it">diciannove</div>
+        </div>
+        <div class="number-card" onclick="speak('venti')">
+          <div class="num">20</div>
+          <div class="it">venti</div>
+        </div>
+      </div>
+
+      <h3 style="margin-top:24px;">🎯 数字测验</h3>
+      <p>点击开始，然后输入数字对应的意大利语：</p>
+      <div style="text-align:center;margin:16px 0;">
+        <div id="numberQuestion" style="font-size:48px;font-weight:700;color:var(--italian-red);margin-bottom:12px;">?</div>
+        <input type="text" id="numberAnswer" placeholder="输入意大利语..." style="padding:10px 16px;border:2px solid var(--border-light);border-radius:8px;font-size:18px;text-align:center;width:200px;">
+        <div style="margin-top:8px;">
+          <button class="btn-secondary" onclick="checkNumber()" style="padding:8px 20px;font-size:13px;">✓ 检查</button>
+          <button class="btn-secondary" onclick="newNumber()" style="padding:8px 20px;font-size:13px;margin-left:8px;">🔄 换一题</button>
+        </div>
+        <div id="numberResult" style="margin-top:8px;font-weight:600;"></div>
+      </div>
+    </div>
+
+    <!-- Section D: Ciao! -->
+    <div class="lesson-section">
+      <h2>👋 4. Ciao! · 你好！</h2>
+      <p>"Ciao" 是最常用的意大利语问候语，既可以用于见面时（你好），也可以用于告别时（再见）。</p>
+      
+      <div class="vocab-grid" style="grid-template-columns:repeat(2,1fr);">
+        <div class="vocab-card" onclick="speak('ciao')">
+          <div class="it">Ciao! 👋</div>
+          <div class="cn">你好！/ 再见！</div>
+        </div>
+        <div class="vocab-card" onclick="speak('arrivederci')">
+          <div class="it">Arrivederci! 👋</div>
+          <div class="cn">再见！（正式）</div>
+        </div>
+      </div>
+      
+      <div class="dialog-box" style="margin-top:16px;">
+        <div class="dialog-line">
+          <span class="dialog-speaker">A:</span>
+          <span class="dialog-text">Ciao! <span class="cn-trans">你好！</span></span>
+        </div>
+        <div class="dialog-line">
+          <span class="dialog-speaker">B:</span>
+          <span class="dialog-text">Ciao! <span class="cn-trans">你好！</span></span>
+        </div>
+      </div>
+
+      <h3 style="margin-top:20px;">💡 你还认识哪些意大利语单词？</h3>
+      <p style="font-size:14px;color:var(--text-muted);">试试拼出这些你已经知道的意大利语词：</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;">
+        <span class="goal-tag" onclick="revealWord('PIZZA')" style="cursor:pointer;font-size:16px;padding:6px 16px;">Pizza 🍕</span>
+        <span class="goal-tag" onclick="revealWord('PASTA')" style="cursor:pointer;font-size:16px;padding:6px 16px;">Pasta 🍝</span>
+        <span class="goal-tag" onclick="revealWord('GELATO')" style="cursor:pointer;font-size:16px;padding:6px 16px;">Gelato 🍦</span>
+        <span class="goal-tag" onclick="revealWord('LASAGNA')" style="cursor:pointer;font-size:16px;padding:6px 16px;">Lasagna 🍲</span>
+        <span class="goal-tag" onclick="revealWord('MUSICA')" style="cursor:pointer;font-size:16px;padding:6px 16px;">Musica 🎵</span>
+        <span class="goal-tag" onclick="revealWord('PALLONE')" style="cursor:pointer;font-size:16px;padding:6px 16px;">Pallone ⚽</span>
+      </div>
+      <div id="revealedSpelling" style="margin-top:16px;padding:16px;background:var(--accent-gold-light);border-radius:8px;text-align:center;min-height:40px;font-size:18px;font-weight:600;letter-spacing:2px;"></div>
+    </div>
+
+    <!-- Navigation -->
+    <div style="display:flex;justify-content:space-between;margin-top:32px;">
+      <a href="index.html" class="btn-secondary">← 返回课程</a>
+      <a href="lezione-1.html" class="btn-primary">Lezione 1: Primi contatti →</a>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-logo">DIECI</div>
+    <p>Corso di lingua italiana per stranieri · Livello A1</p>
+    <p style="margin-top:8px;">Lezione 0 · Lettere e numeri</p>
+  </footer>
+
+  <script>
+    // Scroll progress
+    window.addEventListener('scroll', () => {
+      const st = document.documentElement.scrollTop;
+      const sh = document.documentElement.scrollHeight - window.innerHeight;
+      document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+      if (st > 50) document.getElementById('topNav').classList.add('scrolled');
+      else document.getElementById('topNav').classList.remove('scrolled');
+    });
+
+    // Spelling game
+    let spellingWord = '';
+    function addSpellingLetter(letter) {
+      spellingWord += letter;
+      document.getElementById('spellingWord').textContent = spellingWord;
+    }
+    function clearSpelling() {
+      spellingWord = '';
+      document.getElementById('spellingWord').textContent = '';
+    }
+
+    // Number quiz
+    const numberNames = {
+      0:'zero',1:'uno',2:'due',3:'tre',4:'quattro',5:'cinque',6:'sei',7:'sette',
+      8:'otto',9:'nove',10:'dieci',11:'undici',12:'dodici',13:'tredici',
+      14:'quattordici',15:'quindici',16:'sedici',17:'diciassette',
+      18:'diciotto',19:'diciannove',20:'venti'
+    };
+    let currentNumber = null;
+
+    function newNumber() {
+      currentNumber = Math.floor(Math.random() * 21);
+      document.getElementById('numberQuestion').textContent = currentNumber;
+      document.getElementById('numberAnswer').value = '';
+      document.getElementById('numberResult').textContent = '';
+    }
+    function checkNumber() {
+      const answer = document.getElementById('numberAnswer').value.trim().toLowerCase();
+      const result = document.getElementById('numberResult');
+      if (answer === numberNames[currentNumber]) {
+        result.innerHTML = '✅ 正确！Bravo/a! 🎉';
+        result.style.color = 'var(--italian-green)';
+        setTimeout(newNumber, 1500);
+      } else {
+        result.innerHTML = '❌ 再试试！正确答案是: ' + numberNames[currentNumber];
+        result.style.color = 'var(--italian-red)';
+      }
+    }
+    newNumber();
+
+    // Reveal spelling
+    function revealWord(word) {
+      const letters = word.split('').join(' · ');
+      document.getElementById('revealedSpelling').innerHTML = 
+        `<span style="color:var(--italian-green)">${word}</span> 的拼写: <span style="color:var(--italian-red)">${letters}</span>`;
+      speak(word.toLowerCase());
+    }
+
+    // Intersection observer
+    document.querySelectorAll('.alphabet-card, .number-card, .lesson-section').forEach((el, i) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = `opacity 0.4s ease ${i*0.03}s, transform 0.4s ease ${i*0.03}s`;
+      new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.style.opacity = '1';
+            e.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, {threshold:0.1}).observe(el);
+    });
+  </script>
+</body>
+</html>

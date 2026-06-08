@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lezione 3 · Buon appetito! · DIECI A1</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="audio/audio-data.js"></script>
+  <script src="js/audio-player.js"></script>
+  <style>.food-emoji{font-size:48px;display:block;margin-bottom:8px;}</style>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav"><div class="nav-inner"><a href="index.html" class="nav-logo"><div class="flag-icon"></div>DIECI <span style="font-weight:400;color:var(--text-muted);font-size:14px;">Italiano A1</span></a><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="index.html#lezioni">Lezioni</a></li></ul></div></nav>
+<section class="lesson-hero">
+  <a href="index.html" class="back-link">← Torna al corso</a>
+  <div class="lesson-badge">🍝 Lezione 3</div>
+  <h1>Buon appetito!</h1>
+  <p class="subtitle">祝好胃口！· Al bar, al ristorante, cibo e preferenze</p>
+  <div class="lesson-goals-bar">
+    <span class="goal">☕ Ordinare al bar 咖啡馆点单</span>
+    <span class="goal">🍕 Preferenze alimentari 饮食偏好</span>
+    <span class="goal">🍝 Al ristorante 餐厅点餐</span>
+    <span class="goal">📞 Prenotare 预订</span>
+  </div>
+</section>
+<div class="lesson-content">
+  <div class="lesson-section">
+    <h2>3A · Al bar 在咖啡馆</h2>
+    <p>意大利的 bar 不只是喝咖啡的地方——也是社交中心！</p>
+    <div class="section-tabs">
+      <span class="section-tab active" onclick="showV(this,'v3a')">☕ Prodotti</span>
+      <span class="section-tab" onclick="showV(this,'g3a')">📚 Grammatica</span>
+      <span class="section-tab" onclick="showV(this,'d3a')">💬 Dialogo</span>
+    </div>
+    <div id="v3a">
+      <div class="vocab-grid">
+        <div class="vocab-card" onclick="speak('caffe')"><span class="food-emoji">☕</span><div class="it">caffè</div><div class="cn">浓缩咖啡</div></div>
+        <div class="vocab-card" onclick="speak('cappuccino')"><span class="food-emoji">☕</span><div class="it">cappuccino</div><div class="cn">卡布奇诺</div></div>
+        <div class="vocab-card" onclick="speak('cornetto')"><span class="food-emoji">🥐</span><div class="it">cornetto</div><div class="cn">牛角包</div></div>
+        <div class="vocab-card" onclick="speak('acqua')"><span class="food-emoji">💧</span><div class="it">acqua</div><div class="cn">水</div></div>
+        <div class="vocab-card" onclick="speak('birra')"><span class="food-emoji">🍺</span><div class="it">birra</div><div class="cn">啤酒</div></div>
+        <div class="vocab-card" onclick="speak('vino')"><span class="food-emoji">🍷</span><div class="it">vino</div><div class="cn">葡萄酒</div></div>
+        <div class="vocab-card" onclick="speak('gelato')"><span class="food-emoji">🍦</span><div class="it">gelato</div><div class="cn">冰淇淋</div></div>
+        <div class="vocab-card" onclick="speak('conto')"><span class="food-emoji">🧾</span><div class="it">conto</div><div class="cn">账单</div></div>
+      </div>
+    </div>
+    <div id="g3a" style="display:none;">
+      <h3>名词复数 (Sostantivi plurali)</h3>
+      <table class="grammar-table">
+        <tr><th>Singolare</th><th>Plurale</th><th>Regola</th></tr>
+        <tr><td>caffè</td><td class="highlight-it">caffè</td><td>重音结尾不变</td></tr>
+        <tr><td>cappuccino</td><td class="highlight-it">cappuccini</td><td>-o → -i</td></tr>
+        <tr><td>pizza</td><td class="highlight-it">pizze</td><td>-a → -e</td></tr>
+      </table>
+      <h3>-ere 动词现在时</h3>
+      <table class="grammar-table">
+        <tr><th></th><th>PRENDERE (拿/点)</th><th>VEDERE (看)</th></tr>
+        <tr><td>Io</td><td class="highlight-it">prendo</td><td>vedo</td></tr>
+        <tr><td>Tu</td><td class="highlight-it">prendi</td><td>vedi</td></tr>
+        <tr><td>Lui/Lei</td><td class="highlight-it">prende</td><td>vede</td></tr>
+        <tr><td>Noi</td><td class="highlight-it">prendiamo</td><td>vediamo</td></tr>
+        <tr><td>Voi</td><td class="highlight-it">prendete</td><td>vedete</td></tr>
+        <tr><td>Loro</td><td class="highlight-it">prendono</td><td>vedono</td></tr>
+      </table>
+      <p><strong>Come stai?</strong> = 你好吗？ <strong>Sto bene, grazie!</strong> = 我很好，谢谢！</p>
+    </div>
+    <div id="d3a" style="display:none;">
+      <div class="dialog-box">
+        <div class="dialog-line"><span class="dialog-speaker">Cliente:</span><span class="dialog-text">Buongiorno! Un caffè e un cornetto, per favore. <span class="cn-trans">您好！一杯浓缩咖啡和一个牛角包。</span></span></div>
+        <div class="dialog-line"><span class="dialog-speaker">Barista:</span><span class="dialog-text">Ecco. Sono €3,50. <span class="cn-trans">给您。3.50 欧元。</span></span></div>
+        <div class="dialog-line"><span class="dialog-speaker">Cliente:</span><span class="dialog-text">Grazie! <span class="cn-trans">谢谢！</span></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="lesson-section">
+    <h2>3B · Che cosa mangi? 你吃什么？</h2>
+    <p>描述饮食偏好、一日三餐。</p>
+    <div class="section-tabs">
+      <span class="section-tab active" onclick="showV(this,'v3b')">🥗 Cibo</span>
+      <span class="section-tab" onclick="showV(this,'g3b')">📚 Grammatica</span>
+    </div>
+    <div id="v3b">
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;">
+        <div class="vocab-card"><span class="food-emoji">🥩</span><div class="it">carne</div><div class="cn">肉</div></div>
+        <div class="vocab-card"><span class="food-emoji">🐟</span><div class="it">pesce</div><div class="cn">鱼</div></div>
+        <div class="vocab-card"><span class="food-emoji">🧀</span><div class="it">formaggio</div><div class="cn">奶酪</div></div>
+        <div class="vocab-card"><span class="food-emoji">🍝</span><div class="it">pasta</div><div class="cn">意大利面</div></div>
+        <div class="vocab-card"><span class="food-emoji">🥗</span><div class="it">insalata</div><div class="cn">沙拉</div></div>
+        <div class="vocab-card"><span class="food-emoji">🍞</span><div class="it">pane</div><div class="cn">面包</div></div>
+      </div>
+    </div>
+    <div id="g3b" style="display:none;">
+      <h3>名词 + 形容词配合（单数）</h3>
+      <table class="grammar-table">
+        <tr><th>名词</th><th>形容词</th><th>例子</th></tr>
+        <tr><td>il cibo (m.)</td><td>buono</td><td class="highlight-it">il cibo buono</td></tr>
+        <tr><td>la pizza (f.)</td><td>buona</td><td class="highlight-it">la pizza buona</td></tr>
+      </table>
+      <p><strong>Anche / Invece</strong><br>
+  Anche = 也：<em>Anche a me piace la pasta.</em> 我也喜欢意面。<br>
+  Invece = 而、相反：<em>Io mangio carne, invece tu mangi pesce.</em> 我吃肉，而你吃鱼。</p>
+    </div>
+  </div>
+
+  <div class="lesson-section">
+    <h2>3C · Al ristorante 在餐厅</h2>
+    <p>学习点餐用语和情态动词。</p>
+    <div class="section-tabs">
+      <span class="section-tab active" onclick="showV(this,'g3c')">📚 Grammatica</span>
+      <span class="section-tab" onclick="showV(this,'d3c')">💬 Dialogo</span>
+    </div>
+    <div id="g3c">
+      <h3>情态动词：VOLERE (想要) / POTERE (能够)</h3>
+      <table class="grammar-table">
+        <tr><th></th><th>VOLERE</th><th>POTERE</th></tr>
+        <tr><td>Io</td><td class="highlight-it">voglio</td><td class="highlight-it">posso</td></tr>
+        <tr><td>Tu</td><td class="highlight-it">vuoi</td><td class="highlight-it">puoi</td></tr>
+        <tr><td>Lui/Lei</td><td class="highlight-it">vuole</td><td class="highlight-it">può</td></tr>
+        <tr><td>Noi</td><td class="highlight-it">vogliamo</td><td class="highlight-it">possiamo</td></tr>
+        <tr><td>Voi</td><td class="highlight-it">volete</td><td class="highlight-it">potete</td></tr>
+        <tr><td>Loro</td><td class="highlight-it">vogliono</td><td class="highlight-it">possono</td></tr>
+      </table>
+      <h3 style="margin-top:12px;">定冠词复数</h3>
+      <table class="grammar-table">
+        <tr><th>单数</th><th>复数</th><th>例子</th></tr>
+        <tr><td>il</td><td class="highlight-it">i</td><td>il libro → i libri</td></tr>
+        <tr><td>lo</td><td class="highlight-it">gli</td><td>lo studente → gli studenti</td></tr>
+        <tr><td>la</td><td class="highlight-it">le</td><td>la pizza → le pizze</td></tr>
+      </table>
+    </div>
+    <div id="d3c" style="display:none;">
+      <div class="dialog-box">
+        <div class="dialog-line"><span class="dialog-speaker">Cameriere:</span><span class="dialog-text">Buonasera! Desiderano? <span class="cn-trans">晚上好！想吃点什么？</span></span></div>
+        <div class="dialog-line"><span class="dialog-speaker">Cliente:</span><span class="dialog-text">Io vorrei una pizza margherita, per favore. <span class="cn-trans">我想要一份玛格丽特披萨。</span></span></div>
+        <div class="dialog-line"><span class="dialog-speaker">Cameriere:</span><span class="dialog-text">Da bere? <span class="cn-trans">喝的呢？</span></span></div>
+        <div class="dialog-line"><span class="dialog-speaker">Cliente:</span><span class="dialog-text">Un'acqua naturale, grazie. <span class="cn-trans">一瓶矿泉水，谢谢。</span></span></div>
+        <div class="dialog-line"><span class="dialog-speaker">Cameriere:</span><span class="dialog-text">Subito! <span class="cn-trans">马上来！</span></span></div>
+      </div>
+      <div style="margin-top:12px;font-size:13px;color:var(--text-muted);">
+        餐厅菜单常见分类：Antipasti (前菜) · Primi (第一道/面食) · Secondi (第二道/主菜) · Contorni (配菜) · Dolci (甜点)
+      </div>
+    </div>
+  </div>
+
+  <div class="lesson-section" style="border-left:4px solid var(--italian-gold);">
+    <h2>3D · Italiano in pratica · 📞 Vorrei prenotare un tavolo</h2>
+    <p><strong>实用场景：电话预订餐厅。</strong></p>
+    <div class="dialog-box">
+      <div class="dialog-line"><span class="dialog-speaker">Cliente:</span><span class="dialog-text">Pronto? Buongiorno. Vorrei prenotare un tavolo per stasera. <span class="cn-trans">喂？您好。我想预订今晚的桌子。</span></span></div>
+      <div class="dialog-line"><span class="dialog-speaker">Ristorante:</span><span class="dialog-text">Per quante persone? <span class="cn-trans">几位？</span></span></div>
+      <div class="dialog-line"><span class="dialog-speaker">Cliente:</span><span class="dialog-text">Per due persone, alle 20:00. <span class="cn-trans">两位，晚上 8 点。</span></span></div>
+      <div class="dialog-line"><span class="dialog-speaker">Ristorante:</span><span class="dialog-text">Va bene. A nome di chi? <span class="cn-trans">好的。以谁的名字预订？</span></span></div>
+      <div class="dialog-line"><span class="dialog-speaker">Cliente:</span><span class="dialog-text">A nome di Mario Rossi. <span class="cn-trans">以 Mario Rossi 的名字。</span></span></div>
+      <div class="dialog-line"><span class="dialog-speaker">Ristorante:</span><span class="dialog-text">Perfetto. A stasera! <span class="cn-trans">很好。今晚见！</span></span></div>
+    </div>
+    <p><strong>Vorrei</strong> = 我想要（volere 的条件式，礼貌用语）<br>
+    <strong>Pronto?</strong> = 喂？（电话用语）<br>
+    <strong>Quant'è?</strong> = 多少钱？<br>
+    <strong>Il conto, per favore!</strong> = 买单！</p>
+  </div>
+
+  <div class="lesson-section">
+    <h2>🎯 Esercizi</h2>
+    <h3>配对练习</h3>
+    <p>将意大利语句子和中文翻译配对：</p>
+    <div class="match-pairs">
+      <div class="match-item" data-p="1" onclick="m2(this)">Vorrei un caffè.</div>
+      <div class="match-item" data-p="2" onclick="m2(this)">Buon appetito!</div>
+      <div class="match-item" data-p="3" onclick="m2(this)">Il conto, per favore!</div>
+      <div class="match-item" data-p="4" onclick="m2(this)">Da bere?</div>
+      <div class="match-item" data-p="1" onclick="m2(this)">我想要一杯咖啡。</div>
+      <div class="match-item" data-p="2" onclick="m2(this)">祝好胃口！</div>
+      <div class="match-item" data-p="3" onclick="m2(this)">买单！</div>
+      <div class="match-item" data-p="4" onclick="m2(this)">喝的呢？</div>
+    </div>
+    <div id="m2result" style="text-align:center;margin-top:12px;font-weight:600;"></div>
+  </div>
+  <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+    <a href="lezione-2.html" class="btn-secondary">← Lezione 2</a>
+    <a href="lezione-4.html" class="btn-primary">Lezione 4: Casa e albergo →</a>
+  </div>
+</div>
+<footer class="site-footer"><div class="footer-logo">DIECI</div><p>Lezione 3 · Buon appetito!</p></footer>
+<script>
+window.addEventListener('scroll',()=>{const st=document.documentElement.scrollTop;document.getElementById('scrollProgress').style.width=(st/(document.documentElement.scrollHeight-window.innerHeight)*100)+'%';document.getElementById('topNav').classList.toggle('scrolled',st>50);});
+
+function showV(el,id){const p=el.closest('.lesson-section');p.querySelectorAll('.section-tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');p.querySelectorAll('div[id^="v"],div[id^="g"],div[id^="d"]').forEach(d=>{if(d.id)d.style.display='none';});document.getElementById(id).style.display='block';}
+let m2s=null;let m2c=0;
+function m2(el){if(el.classList.contains('matched'))return;if(!m2s){el.classList.add('selected');m2s=el;}else{if(m2s.dataset.p===el.dataset.p&&m2s!==el){m2s.classList.remove('selected');m2s.classList.add('matched');el.classList.add('matched');m2c++;document.getElementById('m2result').textContent=`✅ 已配对 ${m2c}/4！`;if(m2c===4)document.getElementById('m2result').innerHTML='🎉 全部正确！';}else{m2s.classList.remove('selected');}m2s=null;}
+}
+</script>
+</body>
+</html>

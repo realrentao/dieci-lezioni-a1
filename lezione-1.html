@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lezione 1 · Primi contatti · DIECI A1</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="audio/audio-data.js"></script>
+  <script src="js/audio-player.js"></script>
+</head>
+<body>
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <nav class="top-nav" id="topNav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo"><div class="flag-icon"></div>DIECI <span style="font-weight:400;color:var(--text-muted);font-size:14px;">Italiano A1</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#lezioni">Lezioni</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="lesson-hero">
+    <a href="index.html" class="back-link">← Torna al corso</a>
+    <div class="lesson-badge">👋 Lezione 1</div>
+    <h1>Primi contatti</h1>
+    <p class="subtitle">第一次接触 · Salutare, presentarsi, chiedere la provenienza</p>
+    <div class="lesson-goals-bar">
+      <span class="goal">🙋 Presentarsi 自我介绍</span>
+      <span class="goal">🌍 Indicare provenienza 表明国籍</span>
+      <span class="goal">👥 Presentare qualcuno 介绍他人</span>
+      <span class="goal">👜 Descrivere oggetti 描述物品</span>
+    </div>
+  </section>
+
+  <div class="lesson-content">
+    <!-- 1A: Buongiorno! -->
+    <div class="lesson-section">
+      <h2>1A · Buongiorno! 早上好！</h2>
+      <p>学习问候语和自我介绍的基本句型。</p>
+
+      <div class="section-tabs">
+        <span class="section-tab active" onclick="showVocab(this,'vocab1a')">📖 Vocabolario 词汇</span>
+        <span class="section-tab" onclick="showVocab(this,'dialog1a')">💬 Dialogo 对话</span>
+        <span class="section-tab" onclick="showVocab(this,'grammar1a')">📚 Grammatica 语法</span>
+      </div>
+
+      <div id="vocab1a">
+        <div class="vocab-grid">
+          <div class="vocab-card" onclick="speak('buongiorno')"><div class="it">Buongiorno!</div><div class="cn">早上好/你好</div></div>
+          <div class="vocab-card" onclick="speak('buonasera')"><div class="it">Buonasera!</div><div class="cn">晚上好</div></div>
+          <div class="vocab-card" onclick="speak('buonanotte')"><div class="it">Buonanotte!</div><div class="cn">晚安</div></div>
+          <div class="vocab-card" onclick="speak('arrivederci')"><div class="it">Arrivederci!</div><div class="cn">再见（正式）</div></div>
+          <div class="vocab-card" onclick="speak('piacere')"><div class="it">Piacere!</div><div class="cn">幸会！</div></div>
+          <div class="vocab-card" onclick="speak('come ti chiami')"><div class="it">Come ti chiami?</div><div class="cn">你叫什么名字？</div></div>
+          <div class="vocab-card" onclick="speak('mi chiamo')"><div class="it">Mi chiamo...</div><div class="cn">我叫...</div></div>
+          <div class="vocab-card" onclick="speak('come scusa')"><div class="it">Come, scusa?</div><div class="cn">什么？请再说一遍？</div></div>
+        </div>
+      </div>
+
+      <div id="dialog1a" style="display:none;">
+        <div class="dialog-box">
+          <div class="dialog-line"><span class="dialog-speaker">Marco:</span><span class="dialog-text">Buongiorno! <span class="cn-trans">你好！</span></span></div>
+          <div class="dialog-line"><span class="dialog-speaker">Lucia:</span><span class="dialog-text">Buongiorno! <span class="cn-trans">你好！</span></span></div>
+          <div class="dialog-line"><span class="dialog-speaker">Marco:</span><span class="dialog-text">Come ti chiami? <span class="cn-trans">你叫什么名字？</span></span></div>
+          <div class="dialog-line"><span class="dialog-speaker">Lucia:</span><span class="dialog-text">Mi chiamo Lucia. E tu? <span class="cn-trans">我叫 Lucia。你呢？</span></span></div>
+          <div class="dialog-line"><span class="dialog-speaker">Marco:</span><span class="dialog-text">Io mi chiamo Marco. Piacere! <span class="cn-trans">我叫 Marco。幸会！</span></span></div>
+          <div class="dialog-line"><span class="dialog-speaker">Lucia:</span><span class="dialog-text">Piacere! <span class="cn-trans">幸会！</span></span></div>
+        </div>
+      </div>
+
+      <div id="grammar1a" style="display:none;">
+        <h3>主格代词 (Pronomi soggetto)</h3>
+        <table class="grammar-table">
+          <tr><th>Italiano</th><th>中文</th></tr>
+          <tr><td class="highlight-it">Io</td><td class="highlight-cn">我</td></tr>
+          <tr><td class="highlight-it">Tu</td><td class="highlight-cn">你</td></tr>
+          <tr><td class="highlight-it">Lui / Lei</td><td class="highlight-cn">他 / 她</td></tr>
+        </table>
+        <h3>疑问词 Come</h3>
+        <p>Come 意思是"怎么/如何"：<br>
+        <strong>Come ti chiami?</strong> = 你叫什么名字？<br>
+        <strong>Come stai?</strong> = 你好吗？（Lezione 3 学习）</p>
+        <p><strong>注意：</strong> E (和) 是连接词，读作 /e/。</p>
+      </div>
+    </div>
+
+    <!-- 1B: Di dove sei? -->
+    <div class="lesson-section">
+      <h2>1B · Di dove sei? 你从哪里来？</h2>
+      <p>学习如何询问和回答国籍、来自哪里。</p>
+
+      <div class="section-tabs">
+        <span class="section-tab active" onclick="showVocab(this,'vocab1b')">📖 Paesi 国家</span>
+        <span class="section-tab" onclick="showVocab(this,'grammar1b')">📚 Grammatica 语法</span>
+        <span class="section-tab" onclick="showVocab(this,'dialog1b')">💬 Dialogo 对话</span>
+      </div>
+
+      <div id="vocab1b">
+        <div class="vocab-grid">
+          <div class="vocab-card" onclick="speak('italia')"><div class="it">Italia</div><div class="cn">意大利</div><div class="ipa">italiano/a</div></div>
+          <div class="vocab-card" onclick="speak('cina')"><div class="it">Cina</div><div class="cn">中国</div><div class="ipa">cinese</div></div>
+          <div class="vocab-card" onclick="speak('francia')"><div class="it">Francia</div><div class="cn">法国</div><div class="ipa">francese</div></div>
+          <div class="vocab-card" onclick="speak('germania')"><div class="it">Germania</div><div class="cn">德国</div><div class="ipa">tedesco/a</div></div>
+          <div class="vocab-card" onclick="speak('spagna')"><div class="it">Spagna</div><div class="cn">西班牙</div><div class="ipa">spagnolo/a</div></div>
+          <div class="vocab-card" onclick="speak('inghilterra')"><div class="it">Inghilterra</div><div class="cn">英国</div><div class="ipa">inglese</div></div>
+          <div class="vocab-card" onclick="speak('stati uniti')"><div class="it">Stati Uniti</div><div class="cn">美国</div><div class="ipa">americano/a</div></div>
+          <div class="vocab-card" onclick="speak('giappone')"><div class="it">Giappone</div><div class="cn">日本</div><div class="ipa">giapponese</div></div>
+        </div>
+      </div>
+
+      <div id="grammar1b" style="display:none;">
+        <h3>动词 essere —— 现在时（单数）</h3>
+        <table class="grammar-table">
+          <tr><th>Persona 人称</th><th>Essere 是</th></tr>
+          <tr><td>Io</td><td class="highlight-it">sono</td></tr>
+          <tr><td>Tu</td><td class="highlight-it">sei</td></tr>
+          <tr><td>Lui / Lei</td><td class="highlight-it">è</td></tr>
+        </table>
+        <h3>介词 di 和否定</h3>
+        <p><strong>Di dove sei?</strong> = 你从哪里来？ → <strong>Sono di...</strong> = 我来自...<br>
+        <strong>Sei di Roma?</strong> = 你来自罗马吗？<br>
+        <strong>No, non sono di Roma.</strong> = 不，我不是罗马的。<br>
+        <span style="color:var(--italian-red);">否定词 non 放在动词前面。</span></p>
+        <h3>形容词单数形式</h3>
+        <p>表示国籍的形容词：<br>
+        <strong>italiano / italiana</strong> → Marco è <span class="fill-blank">italiano</span>. Lucia è <span class="fill-blank">italiana</span>.<br>
+        注意形容词需要根据性别变化：-o 结尾为阳性，-a 结尾为阴性。</p>
+      </div>
+
+      <div id="dialog1b" style="display:none;">
+        <div class="dialog-box">
+          <div class="dialog-line"><span class="dialog-speaker">A:</span><span class="dialog-text">Ciao! Di dove sei? <span class="cn-trans">嗨！你从哪里来？</span></span></div>
+          <div class="dialog-line"><span class="dialog-speaker">B:</span><span class="dialog-text">Sono di Pechino. Sono cinese. E tu? <span class="cn-trans">我来自北京。我是中国人。你呢？</span></span></div>
+          <div class="dialog-line"><span class="dialog-speaker">A:</span><span class="dialog-text">Io sono di Roma. Sono italiano. <span class="cn-trans">我来自罗马。我是意大利人。</span></span></div>
+          <div class="dialog-line"><span class="dialog-speaker">B:</span><span class="dialog-text">Piacere! <span class="cn-trans">幸会！</span></span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 1C: Che cos'hai nella borsa? -->
+    <div class="lesson-section">
+      <h2>1C · Che cos'hai nella borsa? 你包里有什么？</h2>
+      <p>学习使用动词 avere（有）和不定冠词描述物品。</p>
+
+      <div class="section-tabs">
+        <span class="section-tab active" onclick="showVocab(this,'vocab1c')">📖 Oggetti 物品</span>
+        <span class="section-tab" onclick="showVocab(this,'grammar1c')">📚 Grammatica 语法</span>
+      </div>
+
+      <div id="vocab1c">
+        <div class="vocab-grid">
+          <div class="vocab-card" onclick="speak('libro')"><div class="it">libro 📖</div><div class="cn">书</div></div>
+          <div class="vocab-card" onclick="speak('penna')"><div class="it">penna 🖊️</div><div class="cn">笔</div></div>
+          <div class="vocab-card" onclick="speak('quaderno')"><div class="it">quaderno 📓</div><div class="cn">笔记本</div></div>
+          <div class="vocab-card" onclick="speak('mappa')"><div class="it">mappa 🗺️</div><div class="cn">地图</div></div>
+          <div class="vocab-card" onclick="speak('borsa')"><div class="it">borsa 👜</div><div class="cn">包</div></div>
+          <div class="vocab-card" onclick="speak('cellulare')"><div class="it">cellulare 📱</div><div class="cn">手机</div></div>
+          <div class="vocab-card" onclick="speak('chiavi')"><div class="it">chiavi 🔑</div><div class="cn">钥匙</div></div>
+          <div class="vocab-card" onclick="speak('occhiali')"><div class="it">occhiali 👓</div><div class="cn">眼镜</div></div>
+        </div>
+      </div>
+
+      <div id="grammar1c" style="display:none;">
+        <h3>动词 avere —— 现在时（单数）</h3>
+        <table class="grammar-table">
+          <tr><th>Persona 人称</th><th>Avere 有</th></tr>
+          <tr><td>Io</td><td class="highlight-it">ho</td></tr>
+          <tr><td>Tu</td><td class="highlight-it">hai</td></tr>
+          <tr><td>Lui / Lei</td><td class="highlight-it">ha</td></tr>
+        </table>
+        <h3>不定冠词 (Articoli indeterminativi)</h3>
+        <table class="grammar-table">
+          <tr><th>Genere 性</th><th>Articolo 冠词</th><th>Esempio 例子</th></tr>
+          <tr><td>Maschile 阳性</td><td class="highlight-it">un</td><td>un libro, un quaderno</td></tr>
+          <tr><td>Femminile 阴性</td><td class="highlight-it">una</td><td>una penna, una borsa</td></tr>
+        </table>
+        <p><strong>注意：</strong>意大利语名词有性别！一般 -o 结尾为阳性 (maschile)，-a 结尾为阴性 (femminile)。</p>
+      </div>
+    </div>
+
+    <!-- 1D: Italiano in pratica -->
+    <div class="lesson-section" style="border-left:4px solid var(--italian-gold);">
+      <h2>1D · Italiano in pratica · <span class="flag-emoji"></span> Può ripetere?</h2>
+      <p><strong>实用场景：在酒店前台登记入住。</strong> 学习使用敬语 Lei 形式。</p>
+
+      <div class="dialog-box">
+        <div class="dialog-line"><span class="dialog-speaker">Cliente:</span><span class="dialog-text">Buongiorno! <span class="cn-trans">您好！</span></span></div>
+        <div class="dialog-line"><span class="dialog-speaker">Ricevimento:</span><span class="dialog-text">Buongiorno! Il passaporto, per favore. <span class="cn-trans">早上好！请出示护照。</span></span></div>
+        <div class="dialog-line"><span class="dialog-speaker">Cliente:</span><span class="dialog-text">Ecco. <span class="cn-trans">给您。</span></span></div>
+        <div class="dialog-line"><span class="dialog-speaker">Ricevimento:</span><span class="dialog-text">Grazie. Come si chiama? <span class="cn-trans">谢谢。您叫什么名字？</span></span></div>
+        <div class="dialog-line"><span class="dialog-speaker">Cliente:</span><span class="dialog-text">Mi chiamo Chen Wei. <span class="cn-trans">我叫陈伟。</span></span></div>
+        <div class="dialog-line"><span class="dialog-speaker">Ricevimento:</span><span class="dialog-text">Può ripetere, per favore? <span class="cn-trans">能请您重复一遍吗？</span></span></div>
+        <div class="dialog-line"><span class="dialog-speaker">Cliente:</span><span class="dialog-text">Chen. Wei. <span class="cn-trans">陈。伟。</span></span></div>
+        <div class="dialog-line"><span class="dialog-speaker">Ricevimento:</span><span class="dialog-text">Grazie! Ecco la chiave. Camera 305. <span class="cn-trans">谢谢！这是钥匙。305 房间。</span></span></div>
+        <div class="dialog-line"><span class="dialog-speaker">Cliente:</span><span class="dialog-text">Grazie, arrivederci! <span class="cn-trans">谢谢，再见！</span></span></div>
+      </div>
+
+      <h3>🤝 敬语 (Lei di cortesia)</h3>
+      <p>在正式场合，用 <strong>Lei</strong>（您）代替 tu（你），动词用第三人称单数形式：<br>
+      <strong>Come si chiama?</strong> = 您叫什么名字？（正式）<br>
+      <strong>Come ti chiami?</strong> = 你叫什么名字？（非正式）</p>
+      <div class="vocab-grid" style="grid-template-columns:repeat(3,1fr);">
+        <div class="vocab-card" onclick="speak('per favore')"><div class="it">Per favore</div><div class="cn">请</div></div>
+        <div class="vocab-card" onclick="speak('grazie')"><div class="it">Grazie</div><div class="cn">谢谢</div></div>
+        <div class="vocab-card" onclick="speak('prego')"><div class="it">Prego</div><div class="cn">不客气</div></div>
+      </div>
+    </div>
+
+    <!-- Exercises -->
+    <div class="lesson-section">
+      <h2>🎯 Esercizi · 练习</h2>
+      
+      <h3>练习 1：填写适当的动词形式</h3>
+      <p>用 essere 或 avere 的适当形式填空：</p>
+      <div id="ex1">
+        <p>Io <input type="text" class="fill-input" data-answer="sono" onchange="checkFill(this)"> di Pechino.</p>
+        <p>Tu come <input type="text" class="fill-input" data-answer="ti chiami" onchange="checkFill(this)"> ?</p>
+        <p>Lei <input type="text" class="fill-input" data-answer="è" onchange="checkFill(this)"> italiana.</p>
+        <p>Io <input type="text" class="fill-input" data-answer="ho" onchange="checkFill(this)"> un libro.</p>
+        <p>Tu <input type="text" class="fill-input" data-answer="hai" onchange="checkFill(this)"> una penna?</p>
+      </div>
+
+      <h3 style="margin-top:20px;">练习 2：配对 · 意大利语 vs 中文</h3>
+      <div class="match-pairs" id="matchGame">
+        <div class="match-item" data-pair="1" onclick="selectMatch(this)">Buongiorno</div>
+        <div class="match-item" data-pair="2" onclick="selectMatch(this)">Come ti chiami?</div>
+        <div class="match-item" data-pair="3" onclick="selectMatch(this)">Piacere</div>
+        <div class="match-item" data-pair="4" onclick="selectMatch(this)">Arrivederci</div>
+        <div class="match-item" data-pair="1" onclick="selectMatch(this)">早上好</div>
+        <div class="match-item" data-pair="2" onclick="selectMatch(this)">你叫什么名字？</div>
+        <div class="match-item" data-pair="3" onclick="selectMatch(this)">幸会</div>
+        <div class="match-item" data-pair="4" onclick="selectMatch(this)">再见</div>
+      </div>
+      <div id="matchResult" style="margin-top:12px;font-weight:600;text-align:center;"></div>
+
+      <h3 style="margin-top:20px;">练习 3：知识测验</h3>
+      <div class="quiz-question">
+        <div class="q-text">1. "Io sono" 的意思是什么？</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="checkQuiz(this,true)">A. 我是</div>
+          <div class="quiz-option" onclick="checkQuiz(this,false)">B. 你有</div>
+          <div class="quiz-option" onclick="checkQuiz(this,false)">C. 他是</div>
+          <div class="quiz-option" onclick="checkQuiz(this,false)">D. 我们是</div>
+        </div>
+      </div>
+      <div class="quiz-question">
+        <div class="q-text">2. "Lei" 在敬语中表示什么？</div>
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="checkQuiz(this,false)">A. 她</div>
+          <div class="quiz-option" onclick="checkQuiz(this,true)">B. 您（正式）</div>
+          <div class="quiz-option" onclick="checkQuiz(this,false)">C. 他</div>
+          <div class="quiz-option" onclick="checkQuiz(this,false)">D. 我们</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation -->
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+      <a href="lezione-0.html" class="btn-secondary">← Lezione 0</a>
+      <a href="lezione-2.html" class="btn-primary">Lezione 2: Persone e professioni →</a>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-logo">DIECI</div>
+    <p>Corso di lingua italiana per stranieri · Livello A1 · Lezione 1: Primi contatti</p>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const st = document.documentElement.scrollTop;
+      const sh = document.documentElement.scrollHeight - window.innerHeight;
+      document.getElementById('scrollProgress').style.width = (st/sh*100) + '%';
+      document.getElementById('topNav').classList.toggle('scrolled', st > 50);
+    });
+
+    function showVocab(el, id) {
+      const parent = el.closest('.lesson-section');
+      parent.querySelectorAll('.section-tab').forEach(t => t.classList.remove('active'));
+      el.classList.add('active');
+      parent.querySelectorAll('[id^="vocab"],[id^="dialog"],[id^="grammar"]').forEach(d => d.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+    }
+
+    function checkFill(el) {
+      const answer = el.dataset.answer.toLowerCase();
+      const userVal = el.value.trim().toLowerCase();
+      if (userVal === answer) {
+        el.classList.add('correct'); el.classList.remove('wrong');
+      } else if (userVal) {
+        el.classList.add('wrong'); el.classList.remove('correct');
+      }
+    }
+
+    let selectedMatch = null;
+    let matchedCount = 0;
+    function selectMatch(el) {
+      if (el.classList.contains('matched')) return;
+      if (selectedMatch === null) {
+        el.classList.add('selected');
+        selectedMatch = el;
+      } else {
+        if (selectedMatch.dataset.pair === el.dataset.pair && selectedMatch !== el) {
+          selectedMatch.classList.remove('selected');
+          selectedMatch.classList.add('matched');
+          el.classList.add('matched');
+          matchedCount++;
+          document.getElementById('matchResult').textContent = `✅ 已配对 ${matchedCount}/4！`;
+          if (matchedCount === 4) {
+            document.getElementById('matchResult').innerHTML = '🎉 全部配对成功！Bravi!';
+          }
+        } else {
+          selectedMatch.classList.remove('selected');
+        }
+        selectedMatch = null;
+      }
+    }
+
+    function checkQuiz(el, correct) {
+      const parent = el.closest('.quiz-question');
+      parent.querySelectorAll('.quiz-option').forEach(o => {
+        o.style.pointerEvents = 'none';
+      });
+      if (correct) {
+        el.classList.add('correct');
+        el.insertAdjacentHTML('afterend', '<div class="quiz-result" style="color:var(--italian-green);">✅ 正确！Bravo/a!</div>');
+      } else {
+        el.classList.add('wrong');
+        el.insertAdjacentHTML('afterend', '<div class="quiz-result" style="color:var(--italian-red);">❌ 再想想！</div>');
+      }
+    }
+  </script>
+</body>
+</html>

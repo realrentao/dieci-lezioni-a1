@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Lezione 9 · Negozi · DIECI A1</title><link rel="stylesheet" href="css/styles.css"><script src="audio/audio-data.js"></script><script src="js/audio-player.js"></script></head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav"><div class="nav-inner"><a href="index.html" class="nav-logo"><div class="flag-icon"></div>DIECI</a><ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="index.html#lezioni">Lezioni</a></li></ul></div></nav>
+<section class="lesson-hero"><a href="index.html" class="back-link">← Torna al corso</a><div class="lesson-badge">🛍️ Lezione 9</div><h1>Negozi</h1><p class="subtitle">购物 · Shopping, spesa, mercato, supermercato</p><div class="lesson-goals-bar"><span class="goal">🛒 Shopping 购物</span><span class="goal">🥦 Fare la spesa 买菜</span><span class="goal">🧑‍🌾 Al mercato 市场</span><span class="goal">🏪 Supermercato 超市</span></div></section>
+<div class="lesson-content">
+  <div class="lesson-section">
+    <h2>9A · Shopping online 网购</h2>
+    <p>学习颜色、服装词汇和直接宾语代词 (pronomi diretti)。</p>
+    <div class="vocab-grid" style="grid-template-columns:repeat(4,1fr);">
+      <div class="vocab-card" onclick="speak('rosso')"><div style="background:red;width:20px;height:20px;border-radius:50%;margin:0 auto 4px;"></div><div class="it">rosso</div><div class="cn">红色</div></div>
+      <div class="vocab-card" onclick="speak('blu')"><div style="background:blue;width:20px;height:20px;border-radius:50%;margin:0 auto 4px;"></div><div class="it">blu</div><div class="cn">蓝色</div></div>
+      <div class="vocab-card" onclick="speak('verde')"><div style="background:green;width:20px;height:20px;border-radius:50%;margin:0 auto 4px;"></div><div class="it">verde</div><div class="cn">绿色</div></div>
+      <div class="vocab-card" onclick="speak('nero')"><div style="background:black;width:20px;height:20px;border-radius:50%;margin:0 auto 4px;"></div><div class="it">nero</div><div class="cn">黑色</div></div>
+    </div>
+    <div class="vocab-grid" style="grid-template-columns:repeat(4,1fr);margin-top:12px;">
+      <div class="vocab-card" onclick="speak('maglietta')"><div class="it">maglietta 👕</div><div class="cn">T恤</div></div>
+      <div class="vocab-card" onclick="speak('pantaloni')"><div class="it">pantaloni 👖</div><div class="cn">裤子</div></div>
+      <div class="vocab-card" onclick="speak('scarpe')"><div class="it">scarpe 👟</div><div class="cn">鞋子</div></div>
+      <div class="vocab-card" onclick="speak('cappotto')"><div class="it">cappotto 🧥</div><div class="cn">大衣</div></div>
+    </div>
+    <h3>直接宾语代词 (Pronomi diretti)</h3>
+    <table class="grammar-table">
+      <tr><th></th><th>单数</th><th>复数</th></tr>
+      <tr><td>lo / la (他/她/它)</td><td>Lo vedo. (我看到他/它)</td><td>Li vedo. (我看到他们/它们)</td></tr>
+      <tr><td>la (她/它-f.)</td><td>La vedo. (我看到她)</td><td>Le vedo. (我看到她们)</td></tr>
+    </table>
+    <p><strong>Che taglia porta?</strong> = 您穿多大码？<br>
+    <strong>Che numero ha?</strong> = 您穿多大号（鞋子）？</p>
+  </div>
+
+  <div class="lesson-section">
+    <h2>9B · Fare la spesa 买菜</h2>
+    <p>在食品店购物，学习 questo/quello 指示形容词。</p>
+    <div class="section-tabs">
+      <span class="section-tab active" onclick="sT9(this,'v9b')">🥦 Alimentari</span>
+      <span class="section-tab" onclick="sT9(this,'g9b')">📚 Dimostrativi</span>
+    </div>
+    <div id="v9b">
+      <div class="vocab-grid" style="grid-template-columns:repeat(auto-fill,minmax(150px,1fr));">
+        <div class="vocab-card"><div class="it">pane 🍞</div><div class="cn">面包</div></div>
+        <div class="vocab-card"><div class="it">latte 🥛</div><div class="cn">牛奶</div></div>
+        <div class="vocab-card"><div class="it">uova 🥚</div><div class="cn">鸡蛋</div></div>
+        <div class="vocab-card"><div class="it">frutta 🍎</div><div class="cn">水果</div></div>
+        <div class="vocab-card"><div class="it">verdura 🥬</div><div class="cn">蔬菜</div></div>
+        <div class="vocab-card"><div class="it">carne 🥩</div><div class="cn">肉</div></div>
+        <div class="vocab-card"><div class="it">pesce 🐟</div><div class="cn">鱼</div></div>
+        <div class="vocab-card"><div class="it">formaggio 🧀</div><div class="cn">奶酪</div></div>
+      </div>
+    </div>
+    <div id="g9b" style="display:none;">
+      <h3>指示形容词 Questo / Quello</h3>
+      <table class="grammar-table">
+        <tr><th></th><th>Questo (这个)</th><th>Quello (那个)</th></tr>
+        <tr><td>m. sing.</td><td class="highlight-it">questo pane</td><td>quel pane</td></tr>
+        <tr><td>f. sing.</td><td class="highlight-it">questa mela</td><td>quella mela</td></tr>
+        <tr><td>m. plur.</td><td class="highlight-it">questi pani</td><td>quei pani</td></tr>
+        <tr><td>f. plur.</td><td class="highlight-it">queste mele</td><td>quelle mele</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="lesson-section">
+    <h2>9C · Al mercato 在市场</h2>
+    <p>描述简单食谱，学习厨房用具词汇。</p>
+    <div class="vocab-grid" style="grid-template-columns:repeat(auto-fill,minmax(150px,1fr));">
+      <div class="vocab-card"><div class="it">pentola 🥘</div><div class="cn">锅</div></div>
+      <div class="vocab-card"><div class="it">padella 🍳</div><div class="cn">平底锅</div></div>
+      <div class="vocab-card"><div class="it">coltello 🔪</div><div class="cn">刀</div></div>
+      <div class="vocab-card"><div class="it">forchetta 🍴</div><div class="cn">叉子</div></div>
+      <div class="vocab-card"><div class="it">cucchiaino 🥄</div><div class="cn">勺子</div></div>
+      <div class="vocab-card"><div class="it">piatto 🍽️</div><div class="cn">盘子</div></div>
+      <div class="vocab-card"><div class="it">bicchiere 🥤</div><div class="cn">杯子</div></div>
+      <div class="vocab-card"><div class="it">tagliare ✂️</div><div class="cn">切</div></div>
+      <div class="vocab-card"><div class="it">mescolare 🥣</div><div class="cn">搅拌</div></div>
+      <div class="vocab-card"><div class="it">cuocere 🔥</div><div class="cn">煮/烹饪</div></div>
+    </div>
+  </div>
+
+  <div class="lesson-section" style="border-left:4px solid var(--italian-gold);">
+    <h2>9D · Italiano in pratica · 🔢 Serviamo il numero 45</h2>
+    <p><strong>实用场景：在超市购物，取号排队。</strong></p>
+    <div class="dialog-box">
+      <div class="dialog-line"><span class="dialog-speaker">Commesso:</span><span class="dialog-text">Buongiorno! Desidera? <span class="cn-trans">您好，要点什么？</span></span></div>
+      <div class="dialog-line"><span class="dialog-speaker">Cliente:</span><span class="dialog-text">Vorrei un chilo di mele, per favore. <span class="cn-trans">我想要一公斤苹果。</span></span></div>
+      <div class="dialog-line"><span class="dialog-speaker">Commesso:</span><span class="dialog-text">Ecco. Vuole altro? <span class="cn-trans">给您。还要别的吗？</span></span></div>
+      <div class="dialog-line"><span class="dialog-speaker">Cliente:</span><span class="dialog-text">Basta così. Grazie. <span class="cn-trans">够了，谢谢。</span></span></div>
+    </div>
+    <p><strong>Vuole altro?</strong> = 还要别的吗？<br>
+    <strong>Basta così.</strong> = 够了。</p>
+  </div>
+  <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+    <a href="lezione-8.html" class="btn-secondary">← Lezione 8</a><a href="lezione-10.html" class="btn-primary">Lezione 10: Il giusto equilibrio →</a>
+  </div>
+</div>
+<footer class="site-footer"><div class="footer-logo">DIECI</div><p>Lezione 9 · Negozi</p></footer>
+<script>
+window.addEventListener('scroll',()=>{const st=document.documentElement.scrollTop;document.getElementById('scrollProgress').style.width=(st/(document.documentElement.scrollHeight-window.innerHeight)*100)+'%';document.getElementById('topNav').classList.toggle('scrolled',st>50);});
+
+function sT9(el,id){const p=el.closest('.lesson-section');p.querySelectorAll('.section-tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');p.querySelectorAll('[id^="v"],[id^="g"]').forEach(d=>{if(d.id)d.style.display='none';});document.getElementById(id).style.display='block';}
+</script>
+</body>
+</html>

@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DIECI - Corso di italiano A1 | 意大利语课程</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="audio/audio-data.js"></script>
+  <script src="js/audio-player.js"></script>
+  <style>
+    .hero-flag-bg {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      display: flex;
+      z-index: 0;
+      opacity: 0.03;
+    }
+    .hero-flag-bg .stripe {
+      flex: 1;
+    }
+    .hero-flag-bg .green { background: var(--italian-green); }
+    .hero-flag-bg .white { background: var(--italian-white); }
+    .hero-flag-bg .red { background: var(--italian-red); }
+    .author-line {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+    .stats-row {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 32px 0;
+    }
+    .stat-item {
+      text-align: center;
+    }
+    .stat-item .number {
+      font-family: var(--font-serif);
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--italian-red);
+    }
+    .stat-item .label {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin: 32px 0;
+    }
+    .quick-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 20px;
+      background: white;
+      border: 1px solid var(--border-light);
+      border-radius: 100px;
+      text-decoration: none;
+      color: var(--text-dark);
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .quick-link:hover {
+      border-color: var(--italian-red);
+      color: var(--italian-red);
+      transform: translateY(-2px);
+    }
+
+    /* About the book section */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .about-text p {
+      margin-bottom: 16px;
+      line-height: 1.8;
+    }
+    .about-text .highlight {
+      background: var(--accent-gold-light);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+    .book-features-list {
+      list-style: none;
+    }
+    .book-features-list li {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 16px;
+      align-items: flex-start;
+    }
+    .book-features-list .num {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      background: var(--italian-green);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    /* Grammar Section Preview */
+    .grammar-preview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .grammar-topic {
+      background: var(--bg-light);
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      padding: 16px;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .grammar-topic:hover {
+      border-color: var(--italian-green);
+    }
+    .grammar-topic h4 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: var(--italian-red);
+    }
+    .grammar-topic p {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; }
+      .stats-row { gap: 20px; flex-wrap: wrap; }
+      .stat-item .number { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Nav -->
+  <nav class="top-nav" id="topNav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="flag-icon"></div>
+        DIECI <span style="font-weight:400;color:var(--text-muted);font-size:14px;">Italiano A1</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#lezioni" class="active">Lezioni 课程</a></li>
+        <li><a href="#struttura">Struttura 结构</a></li>
+        <li><a href="#grammatica">Grammatica 语法</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-flag-bg">
+      <div class="stripe green"></div>
+      <div class="stripe white"></div>
+      <div class="stripe red"></div>
+    </div>
+    <div class="hero-content animate-in">
+      <div class="level-badge">
+        <span class="flag-emoji"></span> Livello A1 · 初级
+      </div>
+      <h1>DIECI</h1>
+      <p class="subtitle">Lezioni di italiano · Corso di lingua italiana per stranieri</p>
+      <p class="author-line">Ciro Massimo Naddeo • Euridice Orlandino · ALMA Edizioni</p>
+      <p class="tagline">
+        一套完整的意大利语 A1 级别数字化课程，涵盖 <strong>10 节主题课程</strong>、
+       语法、词汇、发音练习和交互式学习内容。带你从零开始，探索意大利语与意大利文化。
+      </p>
+      <div class="stats-row">
+        <div class="stat-item">
+          <div class="number">10</div>
+          <div class="label">Lezioni 课程</div>
+        </div>
+        <div class="stat-item">
+          <div class="number">40+</div>
+          <div class="label">Sezioni 章节</div>
+        </div>
+        <div class="stat-item">
+          <div class="number">200+</div>
+          <div class="label">Vocaboli 词汇</div>
+        </div>
+        <div class="stat-item">
+          <div class="number">🎯</div>
+          <div class="label">A1 完全覆盖</div>
+        </div>
+      </div>
+      <div class="quick-links">
+        <a href="lezione-0.html" class="quick-link">🔤 Lezione 0 · Lettere e numeri</a>
+        <a href="#lezioni" class="quick-link">📖 Tutte le lezioni</a>
+        <a href="#struttura" class="quick-link">📋 Struttura del corso</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Strip -->
+  <div class="features-strip">
+    <div class="features-grid">
+      <div class="feature-item">
+        <div class="icon">🗣️</div>
+        <h4>Comunicazione</h4>
+        <p>实用沟通场景对话练习</p>
+      </div>
+      <div class="feature-item">
+        <div class="icon">📚</div>
+        <h4>Grammatica</h4>
+        <p>表格化语法讲解与练习</p>
+      </div>
+      <div class="feature-item">
+        <div class="icon">📝</div>
+        <h4>Vocabolario</h4>
+        <p>图解词汇 + 交互闪卡</p>
+      </div>
+      <div class="feature-item">
+        <div class="icon">🎯</div>
+        <h4>Esercizi</h4>
+        <p>即时反馈练习题与测试</p>
+      </div>
+      <div class="feature-item">
+        <div class="icon">🎬</div>
+        <h4>Videocorso</h4>
+        <p>每课配套教学视频</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lezioni Section -->
+  <section class="section" id="lezioni">
+    <h2 class="section-title">Lezioni · 课程目录</h2>
+    <p class="section-subtitle">点击任意课程进入详细学习页面，包含词汇、语法、练习和视频讲解。</p>
+    
+    <div class="course-grid">
+      <!-- Lezione 0: Lettere e numeri -->
+      <div class="lesson-card" onclick="location.href='lezione-0.html'">
+        <div class="card-header">
+          <span class="lesson-number">Lezione 0 · 预备课</span>
+          <span class="lesson-id">0</span>
+        </div>
+        <div class="card-body">
+          <h3>🔤 Lettere e numeri</h3>
+          <div class="lesson-goals">
+            <span class="goal-tag">字母表</span>
+            <span class="goal-tag">拼写</span>
+            <span class="goal-tag">数字 0-20</span>
+            <span class="goal-tag">问候</span>
+          </div>
+          <p class="lesson-preview">学习意大利语字母表、发音规则和基础数字，掌握简单的问候语 "Ciao!"</p>
+        </div>
+        <div class="card-footer">
+          <a href="lezione-0.html" class="btn-study">Inizia 开始学习 →</a>
+        </div>
+      </div>
+
+      <!-- Lezione 1 -->
+      <div class="lesson-card" onclick="location.href='lezione-1.html'">
+        <div class="card-header">
+          <span class="lesson-number">Lezione 1</span>
+          <span class="lesson-id">1</span>
+        </div>
+        <div class="card-body">
+          <h3>👋 Primi contatti</h3>
+          <div class="lesson-goals">
+            <span class="goal-tag">问候</span>
+            <span class="goal-tag">自我介绍</span>
+            <span class="goal-tag">国籍</span>
+            <span class="goal-tag">课堂物品</span>
+          </div>
+          <p class="lesson-preview">打招呼、自我介绍、询问国籍、描述随身物品。掌握 essere 动词和不定冠词。</p>
+        </div>
+        <div class="card-footer">
+          <a href="lezione-1.html" class="btn-study">Inizia 开始学习 →</a>
+        </div>
+      </div>
+
+      <!-- Lezione 2 -->
+      <div class="lesson-card" onclick="location.href='lezione-2.html'">
+        <div class="card-header">
+          <span class="lesson-number">Lezione 2</span>
+          <span class="lesson-id">2</span>
+        </div>
+        <div class="card-body">
+          <h3>👥 Persone e professioni</h3>
+          <div class="lesson-goals">
+            <span class="goal-tag">年龄</span>
+            <span class="goal-tag">职业</span>
+            <span class="goal-tag">动词变位</span>
+            <span class="goal-tag">电话</span>
+          </div>
+          <p class="lesson-preview">询问年龄、描述职业、介绍他人。学习 -are 动词变位和定冠词。</p>
+        </div>
+        <div class="card-footer">
+          <a href="lezione-2.html" class="btn-study">Inizia 开始学习 →</a>
+        </div>
+      </div>
+
+      <!-- Lezione 3 -->
+      <div class="lesson-card" onclick="location.href='lezione-3.html'">
+        <div class="card-header">
+          <span class="lesson-number">Lezione 3</span>
+          <span class="lesson-id">3</span>
+        </div>
+        <div class="card-body">
+          <h3>🍝 Buon appetito!</h3>
+          <div class="lesson-goals">
+            <span class="goal-tag">酒吧点单</span>
+            <span class="goal-tag">食物偏好</span>
+            <span class="goal-tag">餐厅点餐</span>
+            <span class="goal-tag">电话预约</span>
+          </div>
+          <p class="lesson-preview">在咖啡馆和餐厅点单、谈论食物喜好、预订餐桌。学习 -ere 动词和情态动词。</p>
+        </div>
+        <div class="card-footer">
+          <a href="lezione-3.html" class="btn-study">Inizia 开始学习 →</a>
+        </div>
+      </div>
+
+      <!-- Lezione 4 -->
+      <div class="lesson-card" onclick="location.href='lezione-4.html'">
+        <div class="card-header">
+          <span class="lesson-number">Lezione 4</span>
+          <span class="lesson-id">4</span>
+        </div>
+        <div class="card-body">
+          <h3>🏠 Casa e albergo</h3>
+          <div class="lesson-goals">
+            <span class="goal-tag">房屋描述</span>
+            <span class="goal-tag">酒店服务</span>
+            <span class="goal-tag">评论</span>
+            <span class="goal-tag">预订</span>
+          </div>
+          <p class="lesson-preview">描述房屋和酒店设施、写评论、预订住宿。学习 -ire 动词、andare/venire/dovere。</p>
+        </div>
+        <div class="card-footer">
+          <a href="lezione-4.html" class="btn-study">Inizia 开始学习 →</a>
+        </div>
+      </div>
+
+      <!-- Lezione 5 -->
+      <div class="lesson-card" onclick="location.href='lezione-5.html'">
+        <div class="card-header">
+          <span class="lesson-number">Lezione 5</span>
+          <span class="lesson-id">5</span>
+        </div>
+        <div class="card-body">
+          <h3>🗺️ Spazio e tempo</h3>
+          <div class="lesson-goals">
+            <span class="goal-tag">城市描述</span>
+            <span class="goal-tag">问路指路</span>
+            <span class="goal-tag">时间表达</span>
+            <span class="goal-tag">交通</span>
+          </div>
+          <p class="lesson-preview">描述城市、问路与指路、询问时间、购买车票。学习 c'è/ci sono 和方位表达。</p>
+        </div>
+        <div class="card-footer">
+          <a href="lezione-5.html" class="btn-study">Inizia 开始学习 →</a>
+        </div>
+      </div>
+
+      <!-- Lezione 6 -->
+      <div class="lesson-card" onclick="location.href='lezione-6.html'">
+        <div class="card-header">
+          <span class="lesson-number">Lezione 6</span>
+          <span class="lesson-id">6</span>
+        </div>
+        <div class="card-body">
+          <h3>💬 Parliamo di me</h3>
+          <div class="lesson-goals">
+            <span class="goal-tag">日常习惯</span>
+            <span class="goal-tag">兴趣爱好</span>
+            <span class="goal-tag">喜欢/不喜欢</span>
+            <span class="goal-tag">约会</span>
+          </div>
+          <p class="lesson-preview">描述日常习惯、谈论兴趣爱好、表达好恶、约朋友见面。学习反身动词和 piacere。</p>
+        </div>
+        <div class="card-footer">
+          <a href="lezione-6.html" class="btn-study">Inizia 开始学习 →</a>
+        </div>
+      </div>
+
+      <!-- Lezione 7 -->
+      <div class="lesson-card" onclick="location.href='lezione-7.html'">
+        <div class="card-header">
+          <span class="lesson-number">Lezione 7</span>
+          <span class="lesson-id">7</span>
+        </div>
+        <div class="card-body">
+          <h3>✈️ Italia da scoprire</h3>
+          <div class="lesson-goals">
+            <span class="goal-tag">天气描述</span>
+            <span class="goal-tag">旅行信息</span>
+            <span class="goal-tag">过去时</span>
+            <span class="goal-tag">写明信片</span>
+          </div>
+          <p class="lesson-preview">谈论天气、询问旅行、讲述过去的事、写明信片。学习近过去时 (passato prossimo)。</p>
+        </div>
+        <div class="card-footer">
+          <a href="lezione-7.html" class="btn-study">Inizia 开始学习 →</a>
+        </div>
+      </div>
+
+      <!-- Lezione 8 -->
+      <div class="lesson-card" onclick="location.href='lezione-8.html'">
+        <div class="card-header">
+          <span class="lesson-number">Lezione 8</span>
+          <span class="lesson-id">8</span>
+        </div>
+        <div class="card-body">
+          <h3>🎉 Tradizioni e famiglia</h3>
+          <div class="lesson-goals">
+            <span class="goal-tag">节日传统</span>
+            <span class="goal-tag">家庭描述</span>
+            <span class="goal-tag">物主形容词</span>
+            <span class="goal-tag">祝福语</span>
+          </div>
+          <p class="lesson-preview">讲述节日经历、描述家人外貌性格、使用物主形容词、送上祝福。</p>
+        </div>
+        <div class="card-footer">
+          <a href="lezione-8.html" class="btn-study">Inizia 开始学习 →</a>
+        </div>
+      </div>
+
+      <!-- Lezione 9 -->
+      <div class="lesson-card" onclick="location.href='lezione-9.html'">
+        <div class="card-header">
+          <span class="lesson-number">Lezione 9</span>
+          <span class="lesson-id">9</span>
+        </div>
+        <div class="card-body">
+          <h3>🛍️ Negozi</h3>
+          <div class="lesson-goals">
+            <span class="goal-tag">网购</span>
+            <span class="goal-tag">买菜</span>
+            <span class="goal-tag">市场</span>
+            <span class="goal-tag">超市</span>
+          </div>
+          <p class="lesson-preview">在线购物、在食品店买菜、描述食谱、在超市采购。学习直接宾语代词和指示形容词。</p>
+        </div>
+        <div class="card-footer">
+          <a href="lezione-9.html" class="btn-study">Inizia 开始学习 →</a>
+        </div>
+      </div>
+
+      <!-- Lezione 10 -->
+      <div class="lesson-card" onclick="location.href='lezione-10.html'">
+        <div class="card-header">
+          <span class="lesson-number">Lezione 10</span>
+          <span class="lesson-id">10</span>
+        </div>
+        <div class="card-body">
+          <h3>⚖️ Il giusto equilibrio</h3>
+          <div class="lesson-goals">
+            <span class="goal-tag">工作</span>
+            <span class="goal-tag">健康</span>
+            <span class="goal-tag">建议</span>
+            <span class="goal-tag">减压</span>
+          </div>
+          <p class="lesson-preview">谈论职业道路、描述身体不适、给出建议、讨论减压方法。学习 imperfetto 和命令式。</p>
+        </div>
+        <div class="card-footer">
+          <a href="lezione-10.html" class="btn-study">Inizia 开始学习 →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Struttura del corso -->
+  <section class="section" id="struttura" style="background:var(--bg-light);border-radius:24px;margin:0 24px 40px;">
+    <div style="padding:40px 0;">
+      <h2 class="section-title">Struttura del corso · 课程结构</h2>
+      <p class="section-subtitle">每节课由四个部分 (A-B-C-D) 组成，循序渐进地提升你的意大利语能力。</p>
+      <div class="about-grid" style="margin-top:32px;">
+        <div class="about-text">
+          <p>《<span class="highlight">DIECI</span>》是一套创新的意大利语教材，每课包含<span class="highlight">一个主题页</span>和<span class="highlight">四个双版章节</span> (A, B, C, D)。</p>
+          <p>其中 <span class="highlight">D 部分 (Italiano in pratica)</span> 侧重实用沟通场景，帮助你在真实生活中运用所学。</p>
+          <p>每课结束后配套有 <span class="highlight">Videocorso</span>（视频课程）、<span class="highlight">Progetto</span>（小组项目）、<span class="highlight">Cultura</span>（意大利文化）和 <span class="highlight">Test</span>（自测）。</p>
+          <p>此外，全书附录包含 <strong>Grammatica（语法）</strong>、<strong>Vocabolario illustrato（图解词汇）</strong>、<strong>Fonetica（发音）</strong>和 <strong>Esercizi（综合练习）</strong>。</p>
+        </div>
+        <div>
+          <ul class="book-features-list">
+            <li><span class="num">1</span><div><strong>每课 4 个独立章节</strong><br><span style="font-size:13px;color:var(--text-muted);">每个章节可在一至两次课内完成</span></div></li>
+            <li><span class="num">2</span><div><strong>Italiano in pratica 实用意大利语</strong><br><span style="font-size:13px;color:var(--text-muted);">真实场景沟通训练</span></div></li>
+            <li><span class="num">3</span><div><strong>Videocorso 情景剧</strong><br><span style="font-size:13px;color:var(--text-muted);">10 集情景喜剧，有悬念、有角色发展</span></div></li>
+            <li><span class="num">4</span><div><strong>Decaloghi 十大清单</strong><br><span style="font-size:13px;color:var(--text-muted);">每课总结 10 个核心语言点</span></div></li>
+            <li><span class="num">5</span><div><strong>Ascolto immersivo 沉浸式听力</strong><br><span style="font-size:13px;color:var(--text-muted);">配乐听力训练，加深语言记忆</span></div></li>
+            <li><span class="num">6</span><div><strong>Fumetti "Vivere e pensare all'italiana"</strong><br><span style="font-size:13px;color:var(--text-muted);">漫画故事，理解意大利文化</span></div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Grammar Preview -->
+  <section class="section" id="grammatica">
+    <h2 class="section-title">Grammatica · 语法概览</h2>
+    <p class="section-subtitle">从 A1 级别核心语法点起步，逐步构建你的意大利语句法体系。</p>
+    <div class="grammar-preview-grid">
+      <div class="grammar-topic">
+        <h4>📖 Articoli</h4>
+        <p>定冠词与不定冠词 (il, lo, la, un, una...)</p>
+      </div>
+      <div class="grammar-topic">
+        <h4>🔤 Sostantivi</h4>
+        <p>名词的性与数 (singolare/plurale)</p>
+      </div>
+      <div class="grammar-topic">
+        <h4>🎨 Aggettivi</h4>
+        <p>形容词与名词的性数配合</p>
+      </div>
+      <div class="grammar-topic">
+        <h4>🏃 Verbi regolari</h4>
+        <p>-are / -ere / -ire 规则动词现在时变位</p>
+      </div>
+      <div class="grammar-topic">
+        <h4>⚡ Verbi irregolari</h4>
+        <p>essere, avere, fare, andare, venire, dovere, potere, volere</p>
+      </div>
+      <div class="grammar-topic">
+        <h4>🔄 Passato prossimo</h4>
+        <p>近过去时（完成时）：essere/avere + 过去分词</p>
+      </div>
+      <div class="grammar-topic">
+        <h4>💖 Piacere</h4>
+        <p>表达喜欢/不喜欢 (mi piace / mi piacciono)</p>
+      </div>
+      <div class="grammar-topic">
+        <h4>🪞 Verbi riflessivi</h4>
+        <p>反身动词 (mi alzo, ti chiami...)</p>
+      </div>
+      <div class="grammar-topic">
+        <h4>👑 Imperativo</h4>
+        <p>命令式 (tu 形式规则与不规则)</p>
+      </div>
+      <div class="grammar-topic">
+        <h4>⏳ Imperfetto</h4>
+        <p>未完成过去时</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-logo">DIECI</div>
+    <p>Corso di lingua italiana per stranieri · Livello A1</p>
+    <p style="margin-top:8px;">Ciro Massimo Naddeo • Euridice Orlandino · ALMA Edizioni</p>
+    <p style="margin-top:16px;opacity:0.5;">© 2019 ALMA Edizioni · Versione interattiva digitale</p>
+  </footer>
+
+  <script>
+    // Scroll progress
+    window.addEventListener('scroll', () => {
+      const scrollTop = document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (scrollTop / scrollHeight) * 100;
+      document.getElementById('scrollProgress').style.width = progress + '%';
+
+      // Nav shadow
+      if (scrollTop > 50) {
+        document.getElementById('topNav').classList.add('scrolled');
+      } else {
+        document.getElementById('topNav').classList.remove('scrolled');
+      }
+    });
+
+    // Animation on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.lesson-card, .grammar-topic').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lezione 2 · Persone e professioni · DIECI A1</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="audio/audio-data.js"></script>
+  <script src="js/audio-player.js"></script>
+</head>
+<body>
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="top-nav" id="topNav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><div class="flag-icon"></div>DIECI <span style="font-weight:400;color:var(--text-muted);font-size:14px;">Italiano A1</span></a>
+    <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="index.html#lezioni">Lezioni</a></li></ul>
+  </div>
+</nav>
+<section class="lesson-hero">
+  <a href="index.html" class="back-link">← Torna al corso</a>
+  <div class="lesson-badge">👥 Lezione 2</div>
+  <h1>Persone e professioni</h1>
+  <p class="subtitle">人与职业 · Età, lavoro, studiare italiano</p>
+  <div class="lesson-goals-bar">
+    <span class="goal">🎂 Età 年龄</span>
+    <span class="goal">💼 Lavoro 工作</span>
+    <span class="goal">📚 Studiare italiano 学意大利语</span>
+    <span class="goal">📞 Telefono 电话</span>
+  </div>
+</section>
+
+<div class="lesson-content">
+  <!-- 2A: Studio italiano -->
+  <div class="lesson-section">
+    <h2>2A · Studio italiano 我学意大利语</h2>
+    <p>学习 -are 动词变位，询问年龄和学习意大利语的原因。</p>
+    <div class="section-tabs">
+      <span class="section-tab active" onclick="showVocab2(this,'v2a')">📖 Vocabolario</span>
+      <span class="section-tab" onclick="showVocab2(this,'g2a')">📚 Grammatica</span>
+      <span class="section-tab" onclick="showVocab2(this,'d2a')">💬 Dialogo</span>
+    </div>
+    <div id="v2a">
+      <div class="vocab-grid">
+        <div class="vocab-card" onclick="speak('studio')"><div class="it">studiare</div><div class="cn">学习</div></div>
+        <div class="vocab-card" onclick="speak('italiano')"><div class="it">italiano</div><div class="cn">意大利语</div></div>
+        <div class="vocab-card" onclick="speak('quanti anni hai')"><div class="it">Quanti anni hai?</div><div class="cn">你多大了？</div></div>
+        <div class="vocab-card" onclick="speak('perche')"><div class="it">Perché?</div><div class="cn">为什么</div></div>
+        <div class="vocab-card" onclick="speak('dove')"><div class="it">Dove?</div><div class="cn">哪里</div></div>
+        <div class="vocab-card" onclick="speak('quanto')"><div class="it">Quanto/quanti?</div><div class="cn">多少</div></div>
+      </div>
+    </div>
+    <div id="g2a" style="display:none;">
+      <h3>-are 动词现在时变位（单数）</h3>
+      <table class="grammar-table">
+        <tr><th>Pronome</th><th>STUDIARE</th><th>PARLARE</th></tr>
+        <tr><td>Io</td><td class="highlight-it">studio</td><td class="highlight-it">parlo</td></tr>
+        <tr><td>Tu</td><td class="highlight-it">studi</td><td class="highlight-it">parli</td></tr>
+        <tr><td>Lui/Lei</td><td class="highlight-it">studia</td><td class="highlight-it">parla</td></tr>
+      </table>
+      <h3>数字 21-100</h3>
+      <p>21 = <strong>ventuno</strong>, 22 = ventidue, ... 30 = <strong>trenta</strong>,<br>
+      40 = quaranta, 50 = cinquanta, 60 = sessanta, 70 = settanta,<br>
+      80 = ottanta, 90 = novanta, 100 = <strong>cento</strong></p>
+    </div>
+    <div id="d2a" style="display:none;">
+      <div class="dialog-box">
+        <div class="dialog-line"><span class="dialog-speaker">A:</span><span class="dialog-text">Ciao! Quanti anni hai? <span class="cn-trans">你多大了？</span></span></div>
+        <div class="dialog-line"><span class="dialog-speaker">B:</span><span class="dialog-text">Ho 25 anni. E tu? <span class="cn-trans">我 25 岁。你呢？</span></span></div>
+        <div class="dialog-line"><span class="dialog-speaker">A:</span><span class="dialog-text">Io ho 22 anni. Studi italiano? <span class="cn-trans">我 22 岁。你学意大利语吗？</span></span></div>
+        <div class="dialog-line"><span class="dialog-speaker">B:</span><span class="dialog-text">Sì, studio italiano. <span class="cn-trans">是的，我学意大利语。</span></span></div>
+        <div class="dialog-line"><span class="dialog-speaker">A:</span><span class="dialog-text">Perché studi italiano? <span class="cn-trans">为什么学意大利语？</span></span></div>
+        <div class="dialog-line"><span class="dialog-speaker">B:</span><span class="dialog-text">Perché mi piace l'Italia! <span class="cn-trans">因为我喜欢意大利！</span></span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2B: Che lavoro fai? -->
+  <div class="lesson-section">
+    <h2>2B · Che lavoro fai? 你做什么工作？</h2>
+    <p>学习动词 fare（做）和职业词汇。</p>
+    <div class="section-tabs">
+      <span class="section-tab active" onclick="showVocab2(this,'v2b')">📖 Professioni</span>
+      <span class="section-tab" onclick="showVocab2(this,'g2b')">📚 Grammatica</span>
+    </div>
+    <div id="v2b">
+      <div class="vocab-grid">
+        <div class="vocab-card" onclick="speak('medico')"><div class="it">medico 👨‍⚕️</div><div class="cn">医生</div></div>
+        <div class="vocab-card" onclick="speak('insegnante')"><div class="it">insegnante 👩‍🏫</div><div class="cn">教师</div></div>
+        <div class="vocab-card" onclick="speak('ingegnere')"><div class="it">ingegnere 👷</div><div class="cn">工程师</div></div>
+        <div class="vocab-card" onclick="speak('studente')"><div class="it">studente 🎓</div><div class="cn">学生</div></div>
+        <div class="vocab-card" onclick="speak('avvocato')"><div class="it">avvocato ⚖️</div><div class="cn">律师</div></div>
+        <div class="vocab-card" onclick="speak('giornalista')"><div class="it">giornalista 📰</div><div class="cn">记者</div></div>
+        <div class="vocab-card" onclick="speak('cuoco')"><div class="it">cuoco 👨‍🍳</div><div class="cn">厨师</div></div>
+        <div class="vocab-card" onclick="speak('programmatore')"><div class="it">programmatore 💻</div><div class="cn">程序员</div></div>
+      </div>
+    </div>
+    <div id="g2b" style="display:none;">
+      <h3>动词 FARE —— 现在时</h3>
+      <table class="grammar-table">
+        <tr><th>Io</th><td class="highlight-it">faccio</td><td>Che lavoro fai? Faccio il medico.</td></tr>
+        <tr><th>Tu</th><td class="highlight-it">fai</td><td>Fai l'insegnante?</td></tr>
+        <tr><th>Lui/Lei</th><td class="highlight-it">fa</td><td>Lei fa la giornalista.</td></tr>
+      </table>
+      <h3>定冠词 (Articoli determinativi) 单数</h3>
+      <table class="grammar-table">
+        <tr><th>Maschile</th><td class="highlight-it">il</td><td>il medico, il libro</td></tr>
+        <tr><th>Maschile (speciale)</th><td class="highlight-it">lo</td><td>lo studente (s+辅音)</td></tr>
+        <tr><th>Femminile</th><td class="highlight-it">la</td><td>la penna, la professoressa</td></tr>
+      </table>
+      <p><strong>注意：</strong>Faccio il medico. = 我做医生（直译：我做"那个"医生）。<br>
+      在意大利语中，说职业时通常要加定冠词。</p>
+    </div>
+  </div>
+
+  <!-- 2C: Tre ragazzi di talento -->
+  <div class="lesson-section">
+    <h2>2C · Tre ragazzi di talento 三个有才华的年轻人</h2>
+    <p>学习完整的人称代词和复数动词变位。</p>
+    <div class="section-tabs">
+      <span class="section-tab active" onclick="showVocab2(this,'g2c')">📚 Grammatica</span>
+      <span class="section-tab" onclick="showVocab2(this,'t2c')">📖 Lettura</span>
+    </div>
+    <div id="g2c">
+      <h3>主格代词（全）</h3>
+      <table class="grammar-table">
+        <tr><th>Singolare</th><th></th><th>Plurale</th><th></th></tr>
+        <tr><td>Io</td><td>我</td><td>Noi</td><td>我们</td></tr>
+        <tr><td>Tu</td><td>你</td><td>Voi</td><td>你们</td></tr>
+        <tr><td>Lui/Lei</td><td>他/她</td><td>Loro</td><td>他们</td></tr>
+      </table>
+      <h3>-are 动词复数变位</h3>
+      <table class="grammar-table">
+        <tr><th>Noi</th><td class="highlight-it">studi-amo</td><td>parli-amo</td></tr>
+        <tr><th>Voi</th><td class="highlight-it">studi-ate</td><td>parli-ate</td></tr>
+        <tr><th>Loro</th><td class="highlight-it">studi-ano</td><td>parli-ano</td></tr>
+      </table>
+      <h3>Essere / Avere / Fare 复数</h3>
+      <table class="grammar-table">
+        <tr><th></th><th>Essere</th><th>Avere</th><th>Fare</th></tr>
+        <tr><td>Noi</td><td class="highlight-it">siamo</td><td class="highlight-it">abbiamo</td><td class="highlight-it">facciamo</td></tr>
+        <tr><td>Voi</td><td class="highlight-it">siete</td><td class="highlight-it">avete</td><td class="highlight-it">fate</td></tr>
+        <tr><td>Loro</td><td class="highlight-it">sono</td><td class="highlight-it">hanno</td><td class="highlight-it">fanno</td></tr>
+      </table>
+    </div>
+    <div id="t2c" style="display:none;">
+      <div style="background:var(--bg-light);border-radius:12px;padding:20px;">
+        <p><strong>Marco</strong> ha 22 anni. <strong>Lui</strong> è italiano, di Roma. Fa l'università e studia lingue.</p>
+        <p><strong>Lucia e Sara</strong> sono studentesse. <strong>Loro</strong> hanno 20 anni. Studiano medicina.</p>
+        <p><strong>Io</strong> sono cinese. <strong>Studio</strong> italiano perché mi piace la cultura italiana.</p>
+        <p style="margin-top:12px;font-size:13px;color:var(--text-muted);">👆 这就是个人介绍的基本结构：名字 + 年龄 + 国籍 + 职业/学习 + 原因。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2D: Italiano in pratica -->
+  <div class="lesson-section" style="border-left:4px solid var(--italian-gold);">
+    <h2>2D · Italiano in pratica · 📞 Qual è il tuo numero di telefono?</h2>
+    <p><strong>实用场景：注册语言课程。</strong>学会提供个人信息（邮件、地址、电话）。</p>
+    <div class="dialog-box">
+      <div class="dialog-line"><span class="dialog-speaker">Segretaria:</span><span class="dialog-text">Buongiorno! Vuole iscriversi al corso di italiano? <span class="cn-trans">您好，您想注册意大利语课程吗？</span></span></div>
+      <div class="dialog-line"><span class="dialog-speaker">Studente:</span><span class="dialog-text">Sì, grazie. <span class="cn-trans">是的，谢谢。</span></span></div>
+      <div class="dialog-line"><span class="dialog-speaker">Segretaria:</span><span class="dialog-text">Qual è il suo nome? <span class="cn-trans">请问您叫什么名字？</span></span></div>
+      <div class="dialog-line"><span class="dialog-speaker">Studente:</span><span class="dialog-text">Mi chiamo Wang Li. <span class="cn-trans">我叫王丽。</span></span></div>
+      <div class="dialog-line"><span class="dialog-speaker">Segretaria:</span><span class="dialog-text">Qual è il suo numero di telefono? <span class="cn-trans">您的电话号码是多少？</span></span></div>
+      <div class="dialog-line"><span class="dialog-speaker">Studente:</span><span class="dialog-text">Il mio numero è 340 123 4567. <span class="cn-trans">我的号码是 340 123 4567。</span></span></div>
+      <div class="dialog-line"><span class="dialog-speaker">Segretaria:</span><span class="dialog-text">E la sua email? <span class="cn-trans">您的邮箱呢？</span></span></div>
+      <div class="dialog-line"><span class="dialog-speaker">Studente:</span><span class="dialog-text">wangli@email.com <span class="cn-trans"></span></span></div>
+    </div>
+    <div class="vocab-grid" style="grid-template-columns:repeat(3,1fr);margin-top:16px;">
+      <div class="vocab-card" onclick="speak('telefono')"><div class="it">telefono 📞</div><div class="cn">电话</div></div>
+      <div class="vocab-card" onclick="speak('email')"><div class="it">email 📧</div><div class="cn">邮箱</div></div>
+      <div class="vocab-card" onclick="speak('indirizzo')"><div class="it">indirizzo 🏠</div><div class="cn">地址</div></div>
+    </div>
+  </div>
+
+  <!-- Exercises -->
+  <div class="lesson-section">
+    <h2>🎯 Esercizi · 练习</h2>
+    <h3>动词变位练习</h3>
+    <p>填写正确的动词形式：</p>
+    <p>Io <input type="text" class="fill-input" data-answer="parlo" onchange="checkFill2(this)"> italiano. (parlare)</p>
+    <p>Tu <input type="text" class="fill-input" data-answer="studi" onchange="checkFill2(this)"> medicina? (studiare)</p>
+    <p>Lui <input type="text" class="fill-input" data-answer="fa" onchange="checkFill2(this)"> il medico. (fare)</p>
+    <p>Noi <input type="text" class="fill-input" data-answer="siamo" onchange="checkFill2(this)"> studenti. (essere)</p>
+    <p>Loro <input type="text" class="fill-input" data-answer="hanno" onchange="checkFill2(this)"> 30 anni. (avere)</p>
+
+    <h3 style="margin-top:16px;">测验</h3>
+    <div class="quiz-question">
+      <div class="q-text">"Quanti anni hai?" 的正确回答是？</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="checkQuiz2(this,false)">A. Ho 25 anni. ✅</div>
+        <div class="quiz-option" onclick="checkQuiz2(this,true)">B. Sono di Pechino.</div>
+        <div class="quiz-option" onclick="checkQuiz2(this,false)">C. Studio italiano.</div>
+        <div class="quiz-option" onclick="checkQuiz2(this,false)">D. Faccio il medico.</div>
+      </div>
+    </div>
+    <div class="quiz-question">
+      <div class="q-text">"Che lavoro fai?" 的意思是？</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="checkQuiz2(this,false)">A. 你多大了？</div>
+        <div class="quiz-option" onclick="checkQuiz2(this,false)">B. 你学什么？</div>
+        <div class="quiz-option" onclick="checkQuiz2(this,true)">C. 你做什么工作？</div>
+        <div class="quiz-option" onclick="checkQuiz2(this,false)">D. 你从哪里来？</div>
+      </div>
+    </div>
+  </div>
+
+  <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+    <a href="lezione-1.html" class="btn-secondary">← Lezione 1</a>
+    <a href="lezione-3.html" class="btn-primary">Lezione 3: Buon appetito! →</a>
+  </div>
+</div>
+<footer class="site-footer">
+  <div class="footer-logo">DIECI</div>
+  <p>Corso di lingua italiana per stranieri · Livello A1 · Lezione 2: Persone e professioni</p>
+</footer>
+<script>
+window.addEventListener('scroll',()=>{const st=document.documentElement.scrollTop;document.getElementById('scrollProgress').style.width=(st/(document.documentElement.scrollHeight-window.innerHeight)*100)+'%';document.getElementById('topNav').classList.toggle('scrolled',st>50);});
+function showVocab2(el,id){const p=el.closest('.lesson-section');p.querySelectorAll('.section-tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');p.querySelectorAll('[id^="v"],[id^="g"],[id^="d"],[id^="t"]').forEach(d=>d.style.display='none');document.getElementById(id).style.display='block';}
+function checkFill2(el){const a=el.dataset.answer.toLowerCase();const v=el.value.trim().toLowerCase();if(v===a){el.classList.add('correct');el.classList.remove('wrong');}else if(v){el.classList.add('wrong');el.classList.remove('correct');}}
+function checkQuiz2(el,c){const p=el.closest('.quiz-question');p.querySelectorAll('.quiz-option').forEach(o=>o.style.pointerEvents='none');if(c){el.classList.add('correct');el.insertAdjacentHTML('afterend','<div class="quiz-result" style="color:var(--italian-green);">✅ 正确！</div>');}else{if(el.textContent.includes('✅')){el.classList.add('correct');el.insertAdjacentHTML('afterend','<div class="quiz-result" style="color:var(--italian-green);">✅ 正确！</div>');}else{el.classList.add('wrong');el.insertAdjacentHTML('afterend','<div class="quiz-result" style="color:var(--italian-red);">❌ 再想想！</div>');}}}
+</script>
+</body>
+</html>
