@@ -99,11 +99,43 @@
     </div>
 
     <h3 style="margin-top:20px;">🎯 Esercizi 练习</h3>
-    <p>用命令式形式填空：</p>
-    <p>(parlare) <input class="fill-input" data-answer="parla" onchange="cf10(this)"> più lentamente, per favore! (说慢一点！)</p>
-    <p>(prendere) <input class="fill-input" data-answer="prendi" onchange="cf10(this)"> questo medicinale. (吃这个药。)</p>
-    <p>(dormire) <input class="fill-input" data-answer="dormi" onchange="cf10(this)"> di più! (多睡点！)</p>
-    <p>(andare) <input class="fill-input" data-answer="vai" onchange="cf10(this)"> dal medico! (去看医生！)</p>
+    <p>选择正确的命令式形式：</p>
+    <div class="quiz-question">
+      <div class="q-text">1. (parlare) ___ più lentamente, per favore! (说慢一点！)</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="checkQuiz10(this,true)">A. Parla</div>
+        <div class="quiz-option" onclick="checkQuiz10(this,false)">B. Parli</div>
+        <div class="quiz-option" onclick="checkQuiz10(this,false)">C. Parlano</div>
+        <div class="quiz-option" onclick="checkQuiz10(this,false)">D. Parlo</div>
+      </div>
+    </div>
+    <div class="quiz-question">
+      <div class="q-text">2. (prendere) ___ questo medicinale. (吃这个药。)</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="checkQuiz10(this,false)">A. Prende</div>
+        <div class="quiz-option" onclick="checkQuiz10(this,false)">B. Prendiamo</div>
+        <div class="quiz-option" onclick="checkQuiz10(this,true)">C. Prendi</div>
+        <div class="quiz-option" onclick="checkQuiz10(this,false)">D. Prendo</div>
+      </div>
+    </div>
+    <div class="quiz-question">
+      <div class="q-text">3. (dormire) ___ di più! (多睡点！)</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="checkQuiz10(this,false)">A. Dorme</div>
+        <div class="quiz-option" onclick="checkQuiz10(this,true)">B. Dormi</div>
+        <div class="quiz-option" onclick="checkQuiz10(this,false)">C. Dormiamo</div>
+        <div class="quiz-option" onclick="checkQuiz10(this,false)">D. Dormono</div>
+      </div>
+    </div>
+    <div class="quiz-question">
+      <div class="q-text">4. (andare) ___ dal medico! (去看医生！)</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="checkQuiz10(this,false)">A. Va</div>
+        <div class="quiz-option" onclick="checkQuiz10(this,false)">B. Vado</div>
+        <div class="quiz-option" onclick="checkQuiz10(this,true)">C. Vai</div>
+        <div class="quiz-option" onclick="checkQuiz10(this,false)">D. Vanno</div>
+      </div>
+    </div>
   </div>
 
   <div class="lesson-section">
@@ -131,7 +163,7 @@
 window.addEventListener('scroll',()=>{const st=document.documentElement.scrollTop;document.getElementById('scrollProgress').style.width=(st/(document.documentElement.scrollHeight-window.innerHeight)*100)+'%';document.getElementById('topNav').classList.toggle('scrolled',st>50);});
 
 function sT10(el,id){const p=el.closest('.lesson-section');p.querySelectorAll('.section-tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');p.querySelectorAll('[id^="v"],[id^="g"]').forEach(d=>{if(d.id)d.style.display='none';});document.getElementById(id).style.display='block';}
-function cf10(el){const a=el.dataset.answer;const v=el.value.trim().toLowerCase();if(v===a){el.classList.add('correct');el.classList.remove('wrong');}else if(v){el.classList.add('wrong');el.classList.remove('correct');}}
+function checkQuiz10(el,c){const p=el.closest('.quiz-question');p.querySelectorAll('.quiz-option').forEach(o=>o.style.pointerEvents='none');if(c){el.classList.add('correct');el.insertAdjacentHTML('afterend','<div class="quiz-result" style="color:var(--italian-green);">✅ 正确！Bravo/a!</div>');}else{el.classList.add('wrong');el.insertAdjacentHTML('afterend','<div class="quiz-result" style="color:var(--italian-red);">❌ 再想想！</div>');}}
 </script>
 </body>
 </html>
