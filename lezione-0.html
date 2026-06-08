@@ -47,25 +47,25 @@
 
     .number-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
       gap: 8px;
     }
     .number-card {
       background: var(--bg-light);
       border: 1px solid var(--border-light);
       border-radius: 10px;
-      padding: 12px;
+      padding: 10px 8px;
       text-align: center;
       transition: all 0.2s;
-      display: inline-flex;
-      flex-direction: column;
+      display: flex;
+      flex-direction: row;
       align-items: center;
       justify-content: center;
-      min-height: 68px;
+      gap: 6px;
     }
     .number-card:hover { border-color: var(--italian-gold); }
-    .number-card .num { font-size: 20px; font-weight: 700; color: var(--italian-red); line-height: 1.3; }
-    .number-card .it { font-size: 16px; color: var(--text-dark); line-height: 1.3; }
+    .number-card .num { font-size: 18px; font-weight: 700; color: var(--italian-red); line-height: 1; }
+    .number-card .it { font-size: 16px; color: var(--text-dark); line-height: 1; }
 
     .spelling-game {
       display: flex;
@@ -108,12 +108,15 @@
     .italian-flag-colors .red { background: var(--italian-red); }
 
     /* 对话间距紧凑 */
-    .dialog-box .dialog-line .dialog-speaker {
-      display: inline;
+    .lesson-content .dialog-box .dialog-line {
+      gap: 4px;
+    }
+    .lesson-content .dialog-box .dialog-speaker {
+      min-width: auto;
       margin-right: 0;
     }
-    .dialog-box .dialog-line .dialog-text {
-      margin-left: 2px;
+    .lesson-content .dialog-box .dialog-text {
+      margin-left: 0;
     }
 
     /* 对话语音播放按钮 */
