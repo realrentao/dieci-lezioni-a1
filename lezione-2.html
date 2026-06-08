@@ -176,12 +176,52 @@
   <div class="lesson-section">
     <h2>🎯 Esercizi · 练习</h2>
     <h3>动词变位练习</h3>
-    <p>填写正确的动词形式：</p>
-    <p>Io <input type="text" class="fill-input" data-answer="parlo" onchange="checkFill2(this)"> italiano. (parlare)</p>
-    <p>Tu <input type="text" class="fill-input" data-answer="studi" onchange="checkFill2(this)"> medicina? (studiare)</p>
-    <p>Lui <input type="text" class="fill-input" data-answer="fa" onchange="checkFill2(this)"> il medico. (fare)</p>
-    <p>Noi <input type="text" class="fill-input" data-answer="siamo" onchange="checkFill2(this)"> studenti. (essere)</p>
-    <p>Loro <input type="text" class="fill-input" data-answer="hanno" onchange="checkFill2(this)"> 30 anni. (avere)</p>
+    <p>选择正确的动词形式：</p>
+    <div class="quiz-question">
+      <div class="q-text">1. Io ___ italiano. (parlare)</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="checkQuiz2(this,true)">A. parlo</div>
+        <div class="quiz-option" onclick="checkQuiz2(this,false)">B. parla</div>
+        <div class="quiz-option" onclick="checkQuiz2(this,false)">C. parli</div>
+        <div class="quiz-option" onclick="checkQuiz2(this,false)">D. parlano</div>
+      </div>
+    </div>
+    <div class="quiz-question">
+      <div class="q-text">2. Tu ___ medicina? (studiare)</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="checkQuiz2(this,false)">A. studia</div>
+        <div class="quiz-option" onclick="checkQuiz2(this,false)">B. studio</div>
+        <div class="quiz-option" onclick="checkQuiz2(this,true)">C. studi</div>
+        <div class="quiz-option" onclick="checkQuiz2(this,false)">D. studiamo</div>
+      </div>
+    </div>
+    <div class="quiz-question">
+      <div class="q-text">3. Lui ___ il medico. (fare)</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="checkQuiz2(this,false)">A. fai</div>
+        <div class="quiz-option" onclick="checkQuiz2(this,false)">B. faccio</div>
+        <div class="quiz-option" onclick="checkQuiz2(this,true)">C. fa</div>
+        <div class="quiz-option" onclick="checkQuiz2(this,false)">D. fanno</div>
+      </div>
+    </div>
+    <div class="quiz-question">
+      <div class="q-text">4. Noi ___ studenti. (essere)</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="checkQuiz2(this,false)">A. sono</div>
+        <div class="quiz-option" onclick="checkQuiz2(this,false)">B. siete</div>
+        <div class="quiz-option" onclick="checkQuiz2(this,true)">C. siamo</div>
+        <div class="quiz-option" onclick="checkQuiz2(this,false)">D. è</div>
+      </div>
+    </div>
+    <div class="quiz-question">
+      <div class="q-text">5. Loro ___ 30 anni. (avere)</div>
+      <div class="quiz-options">
+        <div class="quiz-option" onclick="checkQuiz2(this,false)">A. ha</div>
+        <div class="quiz-option" onclick="checkQuiz2(this,false)">B. abbiamo</div>
+        <div class="quiz-option" onclick="checkQuiz2(this,false)">C. hai</div>
+        <div class="quiz-option" onclick="checkQuiz2(this,true)">D. hanno</div>
+      </div>
+    </div>
 
     <h3 style="margin-top:16px;">测验</h3>
     <div class="quiz-question">
@@ -216,7 +256,6 @@
 <script>
 window.addEventListener('scroll',()=>{const st=document.documentElement.scrollTop;document.getElementById('scrollProgress').style.width=(st/(document.documentElement.scrollHeight-window.innerHeight)*100)+'%';document.getElementById('topNav').classList.toggle('scrolled',st>50);});
 function showVocab2(el,id){const p=el.closest('.lesson-section');p.querySelectorAll('.section-tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');p.querySelectorAll('[id^="v"],[id^="g"],[id^="d"],[id^="t"]').forEach(d=>d.style.display='none');document.getElementById(id).style.display='block';}
-function checkFill2(el){const a=el.dataset.answer.toLowerCase();const v=el.value.trim().toLowerCase();if(v===a){el.classList.add('correct');el.classList.remove('wrong');}else if(v){el.classList.add('wrong');el.classList.remove('correct');}}
 function checkQuiz2(el,c){const p=el.closest('.quiz-question');p.querySelectorAll('.quiz-option').forEach(o=>o.style.pointerEvents='none');if(c){el.classList.add('correct');el.insertAdjacentHTML('afterend','<div class="quiz-result" style="color:var(--italian-green);">✅ 正确！</div>');}else{if(el.textContent.includes('✅')){el.classList.add('correct');el.insertAdjacentHTML('afterend','<div class="quiz-result" style="color:var(--italian-green);">✅ 正确！</div>');}else{el.classList.add('wrong');el.insertAdjacentHTML('afterend','<div class="quiz-result" style="color:var(--italian-red);">❌ 再想想！</div>');}}}
 </script>
 </body>
